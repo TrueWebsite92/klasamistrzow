@@ -310,67 +310,90 @@ const SoftBackground = () => (
 );
 
 const HeroStudyScene = () => (
-  <div className="academic-scene group relative mx-auto mt-8 min-h-[390px] w-full max-w-xl lg:mt-0 lg:min-h-[500px]">
-    <div className="absolute inset-x-8 bottom-6 h-28 rounded-[50%] bg-[#1E293B]/14 blur-2xl" />
-    <div className="absolute inset-0 overflow-hidden rounded-[2.3rem] border border-white/70 bg-[#8B6642] shadow-[0_34px_95px_rgba(30,41,59,0.14)]">
-      <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(90deg,rgba(255,255,255,.16)_1px,transparent_1px),linear-gradient(rgba(30,41,59,.12)_1px,transparent_1px)] [background-size:42px_100%,100%_34px]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(231,200,115,0.42),transparent_32%),linear-gradient(145deg,rgba(255,244,221,0.42),rgba(30,41,59,0.05))]" />
+  <div className="hero-editorial relative mx-auto mt-8 min-h-[420px] w-full max-w-[560px] lg:mt-0 lg:min-h-[560px]">
+    <div className="absolute inset-x-10 bottom-5 h-24 rounded-[50%] bg-[#1E293B]/12 blur-2xl" />
+    <div className="absolute inset-0 overflow-hidden rounded-[2.4rem] border border-white/70 bg-[#F4EEE4] shadow-[0_34px_95px_rgba(30,41,59,0.14)]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(231,200,115,0.28),transparent_28%),radial-gradient(circle_at_82%_22%,rgba(124,108,246,0.12),transparent_24%),linear-gradient(145deg,rgba(255,255,255,0.82),rgba(234,242,255,0.42))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(30,41,59,0.04))]" />
+      <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(90deg,rgba(139,102,66,.08)_1px,transparent_1px),linear-gradient(rgba(139,102,66,.06)_1px,transparent_1px)] [background-size:56px_100%,100%_42px]" />
+      <div className="absolute left-[-8%] top-[12%] h-[58%] w-[52%] rotate-[-8deg] rounded-[2rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(255,255,255,0.18))] blur-xl" />
+      <div className="absolute right-[-10%] top-[8%] h-[52%] w-[46%] rotate-[10deg] rounded-[2rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.58),rgba(255,255,255,0.12))] blur-xl" />
     </div>
 
-    <div className="scene-layer absolute inset-4 rounded-[2rem] transition-transform duration-700 group-hover:rotate-[0.45deg] group-hover:scale-[1.01] sm:inset-6">
-      <div className="desk-paper absolute left-4 top-7 w-[52%] -rotate-6 rounded-[1.2rem] border border-[#1E293B]/10 bg-[#FBFAF7] p-4 shadow-[0_20px_50px_rgba(30,41,59,0.16)] sm:left-6 sm:top-8 sm:p-5">
+    <div className="absolute inset-5 rounded-[2rem] bg-[linear-gradient(145deg,rgba(139,102,66,0.92),rgba(111,82,58,0.96))] shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] sm:inset-6">
+      <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(90deg,rgba(255,255,255,.12)_1px,transparent_1px),linear-gradient(rgba(30,41,59,.12)_1px,transparent_1px)] [background-size:44px_100%,100%_34px]" />
+      <div className="absolute right-10 top-10 h-24 w-24 rounded-full bg-[#E7C873]/28 blur-2xl" />
+      <div className="absolute left-10 top-8 h-16 w-28 rounded-full bg-white/10 blur-xl" />
+    </div>
+
+    <div className="hero-layer absolute inset-5 sm:inset-6">
+      <div className="hero-page-left absolute left-4 top-7 w-[54%] rotate-[-7deg] rounded-[1.35rem] border border-[#1E293B]/10 bg-[#FCFBF8] p-4 shadow-[0_22px_55px_rgba(30,41,59,0.18)] sm:left-6 sm:top-8 sm:p-5">
         <div className="mb-3 flex items-center justify-between gap-3">
           <span className="text-[0.62rem] font-black uppercase tracking-[0.2em] text-[#7C6CF6]">Arkusz maturalny</span>
           <FileText className="h-3.5 w-3.5 text-[#7C6CF6]" />
         </div>
-        <div className="space-y-2">
-          <span className="block h-2 w-full rounded bg-[#1E293B]/18" />
-          <span className="block h-2 w-11/12 rounded bg-[#1E293B]/14" />
-          <span className="block h-2 w-9/12 rounded bg-[#E7C873]/70" />
-          <span className="block h-2 w-10/12 rounded bg-[#1E293B]/14" />
+        <div className="space-y-2.5">
+          <span className="block h-2 w-full rounded bg-[#1E293B]/14" />
+          <span className="block h-2 w-11/12 rounded bg-[#1E293B]/12" />
+          <span className="block h-2 w-8/12 rounded bg-[#E7C873]/85" />
+          <span className="block h-2 w-10/12 rounded bg-[#1E293B]/12" />
+          <span className="block h-2 w-9/12 rounded bg-[#1E293B]/10" />
         </div>
-        <div className="mt-5 rounded-xl bg-[#EAF2FF] p-3 text-xs font-bold leading-5 text-[#1E293B]">
+        <div className="mt-5 rounded-[1rem] border border-[#7C6CF6]/10 bg-[#EAF2FF] p-3 text-xs font-bold leading-5 text-[#1E293B]">
           Temat: rola kontekstu w interpretacji lektury
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-10 w-[58%] rotate-3 rounded-[1.5rem] border border-[#1E293B]/10 bg-[#FFFDF8] p-4 shadow-[0_24px_60px_rgba(30,41,59,0.18)] sm:p-5">
+      <div className="hero-book-page absolute right-5 top-10 hidden h-[42%] w-[34%] rotate-[8deg] rounded-[1.4rem] border border-white/45 bg-[linear-gradient(180deg,rgba(255,252,245,0.92),rgba(248,241,228,0.88))] shadow-[0_18px_44px_rgba(30,41,59,0.16)] sm:block">
+        <div className="absolute inset-x-5 top-5 h-px bg-[#1E293B]/10" />
+        <div className="absolute inset-x-5 top-9 space-y-2">
+          <span className="block h-2 w-full rounded bg-[#1E293B]/10" />
+          <span className="block h-2 w-10/12 rounded bg-[#1E293B]/10" />
+          <span className="block h-2 w-11/12 rounded bg-[#E7C873]/70" />
+          <span className="block h-2 w-9/12 rounded bg-[#1E293B]/10" />
+        </div>
+        <div className="absolute bottom-5 left-5 text-[0.62rem] font-black uppercase tracking-[0.18em] text-[#7C6CF6]">
+          fragment lektury
+        </div>
+      </div>
+
+      <div className="hero-notebook absolute bottom-8 left-10 w-[60%] rotate-[3deg] rounded-[1.6rem] border border-[#1E293B]/10 bg-[#FFFDF8] p-4 shadow-[0_26px_62px_rgba(30,41,59,0.2)] sm:p-5">
         <div className="absolute left-1/2 top-0 h-full w-px bg-[#E7C873]/55" />
         <div className="grid grid-cols-2 gap-5">
           <div>
             <p className="font-serif text-xl font-semibold tracking-[-0.04em] text-[#1E293B]">Notatnik</p>
             <div className="mt-4 space-y-2 text-xs font-medium text-[#526174]">
-              <p>teza → argument → przykład</p>
-              <p>motyw: dojrzewanie</p>
-              <p>kontekst: epoka</p>
+              <p>Dziady · motyw winy</p>
+              <p>Lalka · praca i ambicja</p>
+              <p>Chłopi · rytm natury</p>
+              <p>Pan Tadeusz · tradycja</p>
             </div>
           </div>
           <div className="space-y-2 pt-2">
-            <span className="block h-2 w-full rounded bg-[#1E293B]/14" />
-            <span className="block h-2 w-10/12 rounded bg-[#1E293B]/14" />
-            <span className="block h-2 w-8/12 rounded bg-[#7C6CF6]/28" />
-            <span className="block h-2 w-11/12 rounded bg-[#1E293B]/12" />
+            <span className="block h-2 w-full rounded bg-[#1E293B]/12" />
+            <span className="block h-2 w-10/12 rounded bg-[#1E293B]/12" />
+            <span className="block h-2 w-8/12 rounded bg-[#7C6CF6]/26" />
+            <span className="block h-2 w-11/12 rounded bg-[#1E293B]/10" />
+            <span className="block h-2 w-9/12 rounded bg-[#E7C873]/75" />
           </div>
         </div>
       </div>
 
-      <div className="desk-note absolute right-7 top-10 w-32 rotate-6 rounded-[1rem] bg-[#FFF7DC] p-4 shadow-[0_16px_40px_rgba(30,41,59,0.14)]">
+      <div className="hero-sticky absolute right-8 top-14 w-32 rotate-[6deg] rounded-[1rem] bg-[#FFF7DC] p-4 shadow-[0_16px_40px_rgba(30,41,59,0.14)]">
         <p className="text-[0.68rem] font-black uppercase tracking-[0.16em] text-[#7C6CF6]">do powtórki</p>
         <p className="mt-2 font-serif text-lg font-semibold leading-5 tracking-[-0.04em] text-[#1E293B]">motywy i konteksty</p>
       </div>
 
-      <div className="absolute bottom-14 right-7 h-3 w-44 -rotate-[24deg] rounded-full bg-[#1E293B] shadow-[0_12px_24px_rgba(30,41,59,0.26)]">
+      <div className="absolute bottom-16 right-8 h-3 w-44 -rotate-[24deg] rounded-full bg-[#1E293B] shadow-[0_12px_24px_rgba(30,41,59,0.26)]">
         <span className="absolute -right-3 -top-1 h-5 w-8 rounded-full bg-[#E7C873]" />
         <span className="absolute -left-5 -top-0.5 h-4 w-8 rounded-full border border-[#E7C873] bg-[#FAF7F2]" />
       </div>
 
-      <div className="absolute right-12 top-36 hidden w-36 -rotate-3 rounded-[1.1rem] border border-[#1E293B]/10 bg-white/92 p-4 shadow-[0_16px_40px_rgba(30,41,59,0.13)] sm:block">
-        <p className="text-xs font-bold text-[#526174]">fragment tekstu</p>
-        <div className="mt-3 space-y-2">
-          <span className="block h-2 w-full rounded bg-[#1E293B]/13" />
-          <span className="block h-2 w-10/12 rounded bg-[#E7C873]/80" />
-          <span className="block h-2 w-9/12 rounded bg-[#1E293B]/13" />
-        </div>
+      <div className="absolute left-6 top-5 rounded-full border border-white/70 bg-white/82 px-3 py-2 text-[0.72rem] font-bold text-[#1E293B] shadow-[0_14px_34px_rgba(30,41,59,0.12)] backdrop-blur">
+        ✓ przygotowanie do matury
+      </div>
+      <div className="absolute bottom-5 right-6 rounded-full border border-white/70 bg-white/82 px-3 py-2 text-[0.72rem] font-bold text-[#1E293B] shadow-[0_14px_34px_rgba(30,41,59,0.12)] backdrop-blur">
+        ✓ spokojna nauka krok po kroku
       </div>
     </div>
   </div>
@@ -403,19 +426,19 @@ const HeroSection = () => (
 );
 
 const TrustBadgesSection = () => (
-  <section className="px-4 py-6 sm:px-6 lg:py-8">
+  <section className="px-4 py-5 sm:px-6 lg:py-7">
     <div className="mx-auto grid max-w-6xl grid-cols-2 gap-2.5 lg:grid-cols-3">
       {trustBadges.map((badge) => {
         const Icon = badge.icon;
         return (
-          <div key={badge.title} className="reveal group rounded-[1.15rem] border border-white/75 bg-white/62 p-3 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/86 hover:shadow-[0_14px_36px_rgba(30,41,59,0.08)] sm:p-3.5">
+          <div key={badge.title} className="reveal group rounded-[1.05rem] border border-white/75 bg-white/62 p-2.5 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/86 hover:shadow-[0_14px_36px_rgba(30,41,59,0.08)] sm:p-3">
             <div className="flex items-start gap-2.5">
-              <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-xl bg-[#EAF2FF] text-[#7C6CF6] transition-colors group-hover:bg-[#7C6CF6] group-hover:text-white">
-                <Icon className="h-3.5 w-3.5" />
+              <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-lg bg-[#EAF2FF] text-[#7C6CF6] transition-colors group-hover:bg-[#7C6CF6] group-hover:text-white">
+                <Icon className="h-3 w-3" />
               </span>
               <div>
-                <p className="text-sm font-black leading-5 text-[#1E293B]">{badge.title}</p>
-                <p className="mt-0.5 text-xs leading-5 text-[#526174]">{badge.description}</p>
+                <p className="text-[0.82rem] font-black leading-4 text-[#1E293B] sm:text-[0.88rem]">{badge.title}</p>
+                <p className="mt-0.5 text-[0.72rem] leading-4 text-[#526174] sm:text-[0.76rem]">{badge.description}</p>
               </div>
             </div>
           </div>
@@ -690,7 +713,7 @@ const TutoringSection = () => {
             </div>
             <div className="mt-5 grid grid-cols-5 gap-2">
               {["Pn", "Wt", "Śr", "Cz", "Pt"].map((day, index) => (
-                <div key={day} className={cn("rounded-2xl p-3 text-center", index === 2 ? "bg-[#1E293B] text-white" : "bg-white text-[#1E293B]")}> 
+                <div key={day} className={cn("rounded-2xl p-3 text-center", index === 2 ? "bg-[#1E293B] text-white" : "bg-white text-[#1E293B]")}>
                   <p className="text-xs font-bold text-current/70">{day}</p>
                   <p className="mt-1 text-base font-black">{12 + index}</p>
                 </div>

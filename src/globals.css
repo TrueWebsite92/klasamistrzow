@@ -117,20 +117,28 @@
     animation-delay: 120ms;
   }
 
-  .academic-scene {
-    perspective: 1200px;
+  .hero-editorial {
+    perspective: 1400px;
   }
 
-  .scene-layer {
+  .hero-layer {
     transform-style: preserve-3d;
   }
 
-  .desk-paper {
-    animation: desk-paper 7s ease-in-out infinite;
+  .hero-page-left {
+    animation: hero-page-left 8s ease-in-out infinite;
   }
 
-  .desk-note {
-    animation: desk-note 6.2s ease-in-out infinite;
+  .hero-notebook {
+    animation: hero-notebook 9s ease-in-out infinite;
+  }
+
+  .hero-sticky {
+    animation: hero-sticky 6.5s ease-in-out infinite;
+  }
+
+  .hero-book-page {
+    animation: hero-book-page 10s ease-in-out infinite;
   }
 }
 
@@ -146,22 +154,42 @@
   }
 }
 
-@keyframes desk-paper {
+@keyframes hero-page-left {
   0%, 100% {
-    transform: translateY(0) rotate(-6deg);
+    transform: translateY(0) rotate(-7deg);
   }
 
   50% {
-    transform: translateY(-5px) rotate(-5.2deg);
+    transform: translateY(-5px) rotate(-6.2deg);
   }
 }
 
-@keyframes desk-note {
+@keyframes hero-notebook {
+  0%, 100% {
+    transform: translateY(0) rotate(3deg);
+  }
+
+  50% {
+    transform: translateY(-4px) rotate(2.4deg);
+  }
+}
+
+@keyframes hero-sticky {
   0%, 100% {
     transform: translateY(0) rotate(6deg);
   }
 
   50% {
     transform: translateY(-4px) rotate(5deg);
+  }
+}
+
+@keyframes hero-book-page {
+  0%, 100% {
+    transform: translateY(0) rotate(8deg);
+  }
+
+  50% {
+    transform: translateY(-3px) rotate(7deg);
   }
 }
