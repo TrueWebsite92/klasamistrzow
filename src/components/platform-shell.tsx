@@ -42,7 +42,7 @@ export const PlatformShell = ({ title, subtitle, children }: PlatformShellProps)
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
         <div className="mb-8">
           <p className="mb-3 inline-flex rounded-full border border-[#E7C873]/45 bg-white/70 px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#7C6CF6]">
-            Demo platformy
+            Klasa Mistrzów
           </p>
           <h1 className="font-serif text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">{title}</h1>
           <p className="mt-3 max-w-3xl text-base leading-7 text-[#526174]">{subtitle}</p>

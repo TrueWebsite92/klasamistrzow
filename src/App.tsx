@@ -7,7 +7,6 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
-import AdminDashboard from "./pages/AdminDashboard";
 import StudentDashboard from "./pages/StudentDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard";
 
@@ -23,9 +22,13 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/student" element={<StudentDashboard />} />
-          <Route path="/teacher" element={<TeacherDashboard />} />
-          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/uczen" element={<StudentDashboard />} />
+          <Route path="/nauczyciel" element={<TeacherDashboard />} />
+          <Route path="/matura" element={<Index />} />
+          <Route path="/osmoklasista" element={<Index />} />
+          <Route path="/sklep" element={<Index />} />
+          <Route path="/darmowe-materialy" element={<Index />} />
+          <Route path="/korepetycje" element={<Index />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

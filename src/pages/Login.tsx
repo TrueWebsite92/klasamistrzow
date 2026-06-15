@@ -8,24 +8,24 @@ import { usePlatformDemo } from "@/hooks/use-platform-demo";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { state, loginAsDemo } = usePlatformDemo();
+  const { login } = usePlatformDemo();
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    const user = state.users.find((item) => item.email === email);
+    const user = login({ email, password });
 
     if (!user) return;
 
-    loginAsDemo(user.role);
-    navigate(`/${user.role}`);
+    navigate(user.role === "uczen" ? "/uczen" : "/nauczyciel");
   };
 
   return (
     <DemoAuthCard
-      title="Zaloguj się do demo platformy"
-      subtitle="Możesz zalogować się jako istniejący użytkownik demo albo skorzystać z szybkiego wejścia po lewej stronie."
+      title="Zaloguj się do swojej strefy nauki"
+      subtitle="Uzyskaj dostęp do materiałów, lekcji wideo, konsultacji oraz swojej indywidualnej ścieżki nauki."
       footerText="Nie masz jeszcze konta?"
-      footerLinkLabel="Zarejestruj się"
+      footerLinkLabel="Załóż konto"
       footerLinkTo="/register"
     >
       <div className="grid gap-4">
@@ -33,6 +33,12 @@ const Login = () => {
           placeholder="Adres e-mail"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
+        />
+        <Input
+          type="password"
+          placeholder="Hasło"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
         />
         <Button className="rounded-full bg-[#7C6CF6] text-white hover:bg-[#6655EA]" onClick={handleLogin}>
           Zaloguj się

@@ -1,10 +1,15 @@
-export type UserRole = "student" | "teacher" | "admin";
+export type UserRole = "uczen" | "nauczyciel";
 
-export type MaterialType = "PDF" | "video" | "free-material" | "workshop";
-export type MaterialCategory = "matura" | "ósmoklasista" | "lektury" | "rozprawka";
-export type VisibilityStatus = "active" | "hidden";
-export type AccessType = "free" | "paid";
-export type SlotStatus = "available" | "booked" | "hidden";
+export type MaterialType = "pdf" | "material-wideo" | "material-darmowy" | "warsztat-online";
+export type MaterialCategory =
+  | "lektury"
+  | "rozprawka"
+  | "matura"
+  | "egzamin-osmoklasisty"
+  | "motywy-literackie";
+export type VisibilityStatus = "widoczny" | "ukryty";
+export type AccessType = "darmowy" | "platny";
+export type SlotStatus = "dostepny" | "zarezerwowany" | "ukryty";
 export type ProgressStatus = "ukończono" | "w trakcie" | "do rozpoczęcia";
 
 export type PlatformUser = {
@@ -12,6 +17,7 @@ export type PlatformUser = {
   role: UserRole;
   name: string;
   email: string;
+  password: string;
   registeredDate: string;
   learningPath?: string;
 };
@@ -68,7 +74,7 @@ export type Purchase = {
   id: string;
   userId: string;
   materialId: string;
-  grantedByAdmin?: boolean;
+  source?: "zakup" | "nadanie";
 };
 
 export type StudentProgressItem = {

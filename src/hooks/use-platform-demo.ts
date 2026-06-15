@@ -15,15 +15,18 @@ import type {
   PlatformUser,
   PlatformVideo,
   Purchase,
-  StudentProgressItem,
-  TeacherNote,
   UserRole,
 } from "@/lib/platform-types";
 
 type RegisterInput = {
   name: string;
   email: string;
-  role: UserRole;
+  password: string;
+};
+
+type LoginInput = {
+  email: string;
+  password: string;
 };
 
 type MaterialInput = Omit<PlatformMaterial, "id">;
@@ -46,7 +49,19 @@ export const usePlatformDemo = () => {
     [state.users, currentUserId],
   );
 
-  const loginAsDemo = (role: UserRole) => {
+  const login = ({ email, password }: LoginInput) => {
+    const user = state.users.find((item) => item.email === email && item.password === password);
+
+    if (!user) {
+      return null;
+    }
+
+    setCurrentUserIdState(user.id);
+    setCurrentUserId(user.id);
+    return user;
+  };
+
+  const loginAsRole = (role: UserRole) => {
     const user = state.users.find((item) => item.role === role);
     if (!user) return null;
 
@@ -60,28 +75,30 @@ export const usePlatformDemo = () => {
     setCurrentUserId(null);
   };
 
-  const registerUser = ({ name, email, role }: RegisterInput) => {
+  const registerUser = ({ name, email, password }: RegisterInput) => {
     const newUser: PlatformUser = {
-      id: createId("user"),
-      role,
+      id: createId("uzytkownik"),
+      role: "uczen",
       name,
       email,
+      password,
       registeredDate: new Date().toISOString().slice(0, 10),
-      learningPath: role === "student" ? "Nowa ścieżka startowa" : undefined,
+      learningPath: "Nowa ścieżka nauki",
     };
 
-    const freeMaterialIds = state.materials
-      .filter((material) => material.accessType === "free")
+    const darmoweMaterialy = state.materials
+      .filter((material) => material.accessType === "darmowy")
       .map((material) => ({
-        id: createId("purchase"),
+        id: createId("zakup"),
         userId: newUser.id,
         materialId: material.id,
+        source: "nadanie" as const,
       }));
 
     setState((previous) => ({
       ...previous,
       users: [...previous.users, newUser],
-      purchases: [...previous.purchases, ...freeMaterialIds],
+      purchases: [...previous.purchases, ...darmoweMaterialy],
     }));
 
     setCurrentUserIdState(newUser.id);
@@ -92,7 +109,7 @@ export const usePlatformDemo = () => {
 
   const addBooking = (userId: string, slotId: string, topic: string) => {
     const booking: Booking = {
-      id: createId("booking"),
+      id: createId("rezerwacja"),
       userId,
       slotId,
       topic,
@@ -102,7 +119,7 @@ export const usePlatformDemo = () => {
       ...previous,
       bookings: [...previous.bookings, booking],
       calendarSlots: previous.calendarSlots.map((slot) =>
-        slot.id === slotId ? { ...slot, status: "booked" } : slot,
+        slot.id === slotId ? { ...slot, status: "zarezerwowany" } : slot,
       ),
     }));
   };
@@ -129,7 +146,7 @@ export const usePlatformDemo = () => {
   };
 
   const addVideo = (input: VideoInput) => {
-    const video: PlatformVideo = { id: createId("video"), ...input };
+    const video: PlatformVideo = { id: createId("wideo"), ...input };
     setState((previous) => ({ ...previous, videos: [...previous.videos, video] }));
   };
 
@@ -167,7 +184,7 @@ export const usePlatformDemo = () => {
   };
 
   const addSlot = (input: SlotInput) => {
-    const slot: CalendarSlot = { id: createId("slot"), ...input };
+    const slot: CalendarSlot = { id: createId("termin"), ...input };
     setState((previous) => ({ ...previous, calendarSlots: [...previous.calendarSlots, slot] }));
   };
 
@@ -193,10 +210,10 @@ export const usePlatformDemo = () => {
     if (alreadyGranted) return;
 
     const purchase: Purchase = {
-      id: createId("purchase"),
+      id: createId("zakup"),
       userId,
       materialId,
-      grantedByAdmin: true,
+      source: "nadanie",
     };
 
     setState((previous) => ({
@@ -223,7 +240,8 @@ export const usePlatformDemo = () => {
     studentBookings,
     studentPurchases,
     studentProgress,
-    loginAsDemo,
+    login,
+    loginAsRole,
     logout,
     registerUser,
     addBooking,
