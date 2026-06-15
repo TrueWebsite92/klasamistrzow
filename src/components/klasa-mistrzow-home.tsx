@@ -9,20 +9,23 @@ import {
   ChevronRight,
   ClipboardCheck,
   Download,
-  Feather,
   FileText,
   GraduationCap,
   HeartHandshake,
+  Library,
   Lock,
+  Mail,
+  Megaphone,
   Menu,
   MessageCircle,
   NotebookPen,
+  NotebookTabs,
+  Pencil,
   PenLine,
   ReceiptText,
   ScrollText,
   ShieldCheck,
   Sparkles,
-  Target,
   UserRound,
 } from "lucide-react";
 
@@ -51,12 +54,13 @@ const navigation = [
   { label: "Strefa ucznia", href: "#strefa-ucznia" },
 ];
 
-const heroCards = [
-  { label: "Matura bez chaosu", icon: GraduationCap, position: "left-0 top-12 md:-left-10" },
-  { label: "Warsztaty online", icon: CalendarDays, position: "right-0 top-24 md:-right-8" },
-  { label: "Materiały PDF premium", icon: FileText, position: "left-2 bottom-28 md:-left-6" },
-  { label: "Korepetycje indywidualne", icon: HeartHandshake, position: "right-2 bottom-20 md:-right-10" },
-  { label: "Nauka krok po kroku", icon: NotebookPen, position: "left-[32%] top-2" },
+const trustBadges = [
+  { label: "Plan nauki bez chaosu", icon: NotebookTabs },
+  { label: "Nauka krok po kroku", icon: NotebookPen },
+  { label: "Materiały zgodne z egzaminem", icon: FileText },
+  { label: "Indywidualne podejście", icon: UserRound },
+  { label: "Realne efekty", icon: GraduationCap },
+  { label: "Stałe wsparcie", icon: HeartHandshake },
 ];
 
 const credibilityBadges = [
@@ -66,16 +70,13 @@ const credibilityBadges = [
   "Nauka oparta na zrozumieniu",
 ];
 
-const workshopFeatures = [
-  "2 godziny intensywnej pracy",
-  "fabuła krok po kroku",
-  "praca na tekście",
-  "bohaterowie",
-  "motywy",
-  "konteksty",
-  "gotowe pomysły do rozprawki",
-  "materiały PDF",
-  "możliwość zadawania pytań",
+const maturaFeatures = [
+  { title: "Bohaterowie", text: "Najważniejsze postacie i relacje bez zbędnych dygresji.", icon: UserRound },
+  { title: "Gotowe pomysły do rozprawki", text: "Argumenty, tezy i konteksty gotowe do użycia w pracy.", icon: Pencil },
+  { title: "Fabuła krok po kroku", text: "Lektura uporządkowana logicznie, scena po scenie.", icon: BookOpen },
+  { title: "Konteksty", text: "To, co naprawdę wzmacnia interpretację na egzaminie.", icon: Library },
+  { title: "Motywy", text: "Najważniejsze tropy z przykładami i zastosowaniem.", icon: Bookmark },
+  { title: "Pytania i PDF", text: "Możliwość zadawania pytań oraz materiały po spotkaniu.", icon: FileText },
 ];
 
 const epochs = [
@@ -99,58 +100,41 @@ const epochDetails = [
   "pytania maturalne",
 ];
 
-const eighthGradeItems = [
-  "omówienie lektur",
-  "rozprawka",
-  "opowiadanie",
-  "zaproszenie",
-  "ogłoszenie",
-  "arkusze egzaminacyjne",
-  "praktyczne ćwiczenia",
+const eighthGradeCards = [
+  { title: "Omówienie lektur", icon: BookOpen },
+  { title: "Rozprawka", icon: Pencil },
+  { title: "Opowiadanie", icon: NotebookPen },
+  { title: "Zaproszenie", icon: Mail },
+  { title: "Ogłoszenie", icon: Megaphone },
+  { title: "Arkusze egzaminacyjne", icon: FileText },
+  { title: "Czytanie ze zrozumieniem", icon: BookMarked },
+  { title: "Charakterystyka", icon: UserRound },
 ];
 
 const products = [
   {
     title: "Lalka pod klucz",
-    author: "Bolesław Prus",
     description: "Fabuła, bohaterowie, konteksty i gotowe tropy do rozprawki.",
-    cover: "bg-[linear-gradient(145deg,#263248_0%,#4B3A5E_58%,#D9BC6E_100%)]",
-    accent: "Warszawa · pozytywizm",
   },
   {
     title: "Dziady III pod klucz",
-    author: "Adam Mickiewicz",
     description: "Motywy, symbole, sceny i interpretacje bez chaosu.",
-    cover: "bg-[linear-gradient(145deg,#1E293B_0%,#2D2353_60%,#7C6CF6_100%)]",
-    accent: "romantyzm · dramat",
   },
   {
     title: "Chłopi pod klucz",
-    author: "Władysław Reymont",
     description: "Plan pracy z lekturą, konteksty epoki i najważniejsze problemy.",
-    cover: "bg-[linear-gradient(145deg,#2F3F2F_0%,#8B6B3D_62%,#E7C873_100%)]",
-    accent: "wieś · natura · symbol",
   },
   {
     title: "Przedwiośnie pod klucz",
-    author: "Stefan Żeromski",
     description: "Szybka powtórka, która porządkuje fabułę i idee utworu.",
-    cover: "bg-[linear-gradient(145deg,#24364A_0%,#6B3C45_64%,#E8B67A_100%)]",
-    accent: "Polska · idee · dojrzewanie",
   },
   {
     title: "Egzamin ósmoklasisty – komplet",
-    author: "Pakiet egzaminacyjny",
     description: "Lektury, formy wypowiedzi i praktyczne arkusze w jednym pakiecie.",
-    cover: "bg-[linear-gradient(145deg,#244559_0%,#4C7C8A_58%,#EAF2FF_100%)]",
-    accent: "arkusze · formy wypowiedzi",
   },
   {
     title: "Inne lektury",
-    author: "Biblioteka PDF",
     description: "Materiały do kolejnych lektur rozwijane zgodnie z potrzebami uczniów.",
-    cover: "bg-[linear-gradient(145deg,#6D5DE8_0%,#8D7AF7_55%,#E7C873_100%)]",
-    accent: "notatki · motywy · konteksty",
   },
 ];
 
@@ -209,15 +193,15 @@ const SectionIntro = ({
   description: string;
   align?: "center" | "left";
 }) => (
-  <div className={cn("mx-auto max-w-3xl", align === "center" ? "text-center" : "text-left")}> 
+  <div className={cn("mx-auto max-w-3xl", align === "center" ? "text-center" : "text-left")}>
     <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#E7C873]/45 bg-white/60 px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#6D5DE8] shadow-sm backdrop-blur">
-      <Feather className="h-3 w-3" />
+      <BookOpen className="h-3 w-3" />
       {eyebrow}
     </p>
-    <h2 className="font-serif text-[2.1rem] font-semibold leading-[1.02] tracking-[-0.05em] text-[#1E293B] sm:text-4xl lg:text-5xl">
+    <h2 className="font-serif text-[2rem] font-semibold leading-[1.05] tracking-[-0.05em] text-[#1E293B] sm:text-[2.55rem] lg:text-[3.15rem]">
       {title}
     </h2>
-    <p className="mt-4 text-base leading-7 text-[#526174] sm:text-[1.05rem]">{description}</p>
+    <p className="mt-4 text-base leading-7 text-[#526174] sm:text-[1.03rem]">{description}</p>
   </div>
 );
 
@@ -247,8 +231,8 @@ const PremiumButton = ({
 );
 
 const SiteHeader = () => (
-  <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
-    <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/70 bg-[#FAF7F2]/82 px-4 py-3 shadow-[0_18px_70px_rgba(30,41,59,0.09)] backdrop-blur-2xl sm:px-5">
+  <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4">
+    <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/70 bg-[#FAF7F2]/84 px-3 py-2.5 shadow-[0_18px_70px_rgba(30,41,59,0.09)] backdrop-blur-2xl sm:px-5 sm:py-3">
       <KlasaMistrzowLogo />
       <nav className="hidden items-center gap-1 lg:flex">
         {navigation.map((item) => (
@@ -277,16 +261,16 @@ const SiteHeader = () => (
               <KlasaMistrzowLogo />
             </SheetTitle>
           </SheetHeader>
-          <div className="mt-9 grid gap-3">
+          <div className="mt-8 grid gap-2.5">
             {navigation.map((item) => (
               <SheetClose asChild key={item.href}>
-                <a href={item.href} className="rounded-2xl border border-[#1E293B]/10 bg-white/65 px-4 py-4 text-base font-semibold text-[#1E293B] shadow-sm">
+                <a href={item.href} className="rounded-2xl border border-[#1E293B]/10 bg-white/65 px-4 py-3.5 text-sm font-semibold text-[#1E293B] shadow-sm">
                   {item.label}
                 </a>
               </SheetClose>
             ))}
             <SheetClose asChild>
-              <a href="#strefa-ucznia" className="mt-3 rounded-full bg-[#7C6CF6] px-5 py-4 text-center font-bold text-white shadow-xl">
+              <a href="#strefa-ucznia" className="mt-2 rounded-full bg-[#7C6CF6] px-5 py-3.5 text-center font-bold text-white shadow-xl">
                 Zaloguj się
               </a>
             </SheetClose>
@@ -299,110 +283,143 @@ const SiteHeader = () => (
 
 const SoftBackground = () => (
   <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-    <div className="absolute left-[-10%] top-20 h-72 w-72 rounded-full bg-[#E7C873]/22 blur-3xl" />
-    <div className="absolute right-[-12%] top-36 h-80 w-80 rounded-full bg-[#7C6CF6]/14 blur-3xl" />
-    <div className="absolute bottom-8 left-[38%] h-56 w-56 rounded-full bg-[#EAF2FF] blur-3xl" />
+    <div className="absolute left-[-14%] top-16 h-64 w-64 rounded-full bg-[#E7C873]/22 blur-3xl" />
+    <div className="absolute right-[-12%] top-32 h-80 w-80 rounded-full bg-[#7C6CF6]/13 blur-3xl" />
+    <div className="absolute bottom-8 left-[36%] h-48 w-48 rounded-full bg-[#EAF2FF] blur-3xl" />
   </div>
 );
 
-const HeroPortrait = () => (
-  <div className="relative mx-auto mt-10 flex min-h-[560px] w-full max-w-xl items-end justify-center lg:mt-0">
-    <div className="absolute bottom-8 h-[76%] w-[72%] rounded-t-[16rem] rounded-b-[3rem] border border-white/80 bg-[linear-gradient(180deg,rgba(234,242,255,0.86),rgba(255,255,255,0.45))] shadow-[0_38px_110px_rgba(30,41,59,0.15)]" />
-    <div className="absolute bottom-0 h-40 w-[86%] rounded-[50%] bg-[#1E293B]/10 blur-2xl" />
-    <img
-      src={TEACHER_PORTRAIT}
-      alt="Paulina Spruch-Wójtowicz, twórczyni Klasy Mistrzów"
-      className="reveal relative z-10 max-h-[560px] w-auto object-contain drop-shadow-[0_28px_48px_rgba(30,41,59,0.22)]"
-    />
-    {heroCards.map((card, index) => {
-      const Icon = card.icon;
-      return (
-        <div
-          key={card.label}
-          className={cn(
-            "float-card absolute z-20 hidden items-center gap-2 rounded-2xl border border-white/80 bg-white/78 px-3.5 py-3 text-sm font-bold text-[#1E293B] shadow-[0_18px_45px_rgba(30,41,59,0.12)] backdrop-blur-xl sm:flex",
-            card.position,
-          )}
-          style={{ animationDelay: `${index * 120}ms` }}
-        >
-          <Icon className="h-3.5 w-3.5 text-[#7C6CF6]" />
-          {card.label}
+const HeroStudyScene = () => (
+  <div className="academic-scene group relative mx-auto mt-8 min-h-[410px] w-full max-w-xl lg:mt-0 lg:min-h-[520px]">
+    <div className="absolute inset-x-4 bottom-8 h-64 rounded-[2.4rem] bg-[#1E293B]/10 blur-3xl" />
+    <div className="absolute inset-0 rounded-[2.4rem] border border-white/75 bg-white/48 shadow-[0_32px_95px_rgba(30,41,59,0.12)] backdrop-blur-xl" />
+
+    <div className="scene-layer absolute inset-5 rounded-[2rem] bg-[radial-gradient(circle_at_30%_20%,rgba(231,200,115,0.24),transparent_30%),linear-gradient(145deg,#FCFAF6_0%,#EAF2FF_100%)] p-5 shadow-inner transition-transform duration-700 group-hover:-translate-y-1 sm:p-7">
+      <div className="absolute right-8 top-8 h-32 w-32 rounded-full bg-[#E7C873]/35 blur-2xl" />
+      <div className="absolute right-10 top-10 h-16 w-16 rounded-full bg-[#E7C873]/45" />
+      <div className="absolute right-[4.2rem] top-[6.3rem] h-44 w-2 -rotate-12 rounded-full bg-[#1E293B]/20" />
+      <div className="absolute right-20 top-36 h-24 w-32 rounded-full bg-[#E7C873]/20 blur-2xl" />
+
+      <div className="paper-float absolute left-8 top-8 w-44 rotate-[-7deg] rounded-[1.25rem] border border-[#1E293B]/10 bg-white p-4 shadow-[0_18px_45px_rgba(30,41,59,0.12)] sm:w-52">
+        <div className="mb-3 flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-[#7C6CF6]">
+          <FileText className="h-3.5 w-3.5" /> arkusz
         </div>
-      );
-    })}
-    <div className="absolute bottom-7 left-1/2 z-20 w-[88%] -translate-x-1/2 rounded-[1.6rem] border border-white/80 bg-[#FAF7F2]/86 p-4 shadow-[0_20px_70px_rgba(30,41,59,0.14)] backdrop-blur-xl sm:hidden">
-      <p className="font-serif text-xl font-semibold tracking-[-0.04em] text-[#1E293B]">Matura bez chaosu</p>
-      <p className="mt-1 text-sm text-[#526174]">warsztaty · PDF · korepetycje</p>
+        <div className="space-y-2">
+          <span className="block h-2 w-full rounded bg-[#1E293B]/20" />
+          <span className="block h-2 w-10/12 rounded bg-[#1E293B]/15" />
+          <span className="block h-2 w-8/12 rounded bg-[#7C6CF6]/30" />
+        </div>
+        <p className="mt-4 font-serif text-lg font-semibold tracking-[-0.04em] text-[#1E293B]">Rozprawka</p>
+      </div>
+
+      <div className="paper-float-delayed absolute bottom-14 left-8 w-56 rotate-[4deg] rounded-[1.4rem] bg-[#FFF7DC] p-5 shadow-[0_18px_45px_rgba(30,41,59,0.1)] sm:left-16 sm:w-64">
+        <p className="text-xs font-black uppercase tracking-[0.18em] text-[#7C6CF6]">notatka</p>
+        <h3 className="mt-2 font-serif text-2xl font-semibold tracking-[-0.05em] text-[#1E293B]">Motyw winy i kary</h3>
+        <div className="mt-4 space-y-2 text-sm text-[#526174]">
+          <p>• przykład z lektury</p>
+          <p>• kontekst epoki</p>
+          <p>• wniosek do argumentu</p>
+        </div>
+      </div>
+
+      <div className="absolute bottom-16 right-6 w-56 rotate-[-3deg] rounded-[1.4rem] bg-[#1E293B] p-5 text-white shadow-[0_24px_60px_rgba(30,41,59,0.22)] sm:right-10 sm:w-64">
+        <div className="mb-4 flex items-center justify-between">
+          <span className="text-xs font-black uppercase tracking-[0.18em] text-[#E7C873]">plan powtórki</span>
+          <BookOpen className="h-4 w-4 text-[#E7C873]" />
+        </div>
+        {[
+          "Lektura",
+          "Motywy",
+          "Konteksty",
+          "Praca pisemna",
+        ].map((item, index) => (
+          <div key={item} className="flex items-center gap-3 border-t border-white/10 py-2.5 text-sm text-white/82">
+            <span className="grid h-5 w-5 place-items-center rounded-full bg-white/10 text-[0.65rem] font-black text-[#E7C873]">{index + 1}</span>
+            {item}
+          </div>
+        ))}
+      </div>
+
+      <div className="absolute left-1/2 top-1/2 hidden h-28 w-44 -translate-x-1/2 -translate-y-1/2 rotate-[-10deg] rounded-t-[1rem] rounded-b-[0.45rem] bg-[#7C6CF6] shadow-[0_22px_55px_rgba(124,108,246,0.22)] sm:block">
+        <div className="absolute inset-3 rounded-t-[0.8rem] border border-white/25" />
+        <div className="absolute bottom-0 left-0 h-5 w-full rounded-b-[0.45rem] bg-[#E7C873]" />
+      </div>
+
+      <div className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 items-center gap-2 rounded-full border border-white/70 bg-white/75 px-4 py-2 text-sm font-bold text-[#1E293B] shadow-lg backdrop-blur sm:flex">
+        <PenLine className="h-3.5 w-3.5 text-[#7C6CF6]" />
+        nauka uporządkowana jak dobry plan
+      </div>
     </div>
   </div>
 );
 
 const HeroSection = () => (
-  <section id="top" className="relative overflow-hidden px-4 pb-14 pt-32 sm:px-6 lg:pb-20 lg:pt-36">
+  <section id="top" className="relative overflow-hidden px-4 pb-9 pt-28 sm:px-6 sm:pb-12 lg:pb-14 lg:pt-32">
     <SoftBackground />
-    <div className="relative mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[0.98fr_1.02fr]">
+    <div className="relative mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
       <div className="reveal max-w-3xl">
         <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-white/80 bg-white/62 px-4 py-2 shadow-sm backdrop-blur">
-          <span className="grid h-7 w-7 place-items-center rounded-full bg-[#7C6CF6] text-white">
-            <Feather className="h-3.5 w-3.5" />
-          </span>
-          <span className="text-sm font-bold text-[#1E293B]">Język polski prowadzony spokojnie, logicznie i z klasą</span>
+          <BookOpen className="h-4 w-4 text-[#7C6CF6]" />
+          <span className="text-sm font-bold text-[#1E293B]">Premium przygotowanie do egzaminów z języka polskiego</span>
         </div>
-        <h1 className="font-serif text-[2.85rem] font-semibold leading-[0.98] tracking-[-0.06em] text-[#1E293B] sm:text-5xl lg:text-[4.35rem] xl:text-[4.85rem]">
-          Nazywam się Paulina Spruch-Wójtowicz.
+        <h1 className="font-serif text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.06em] text-[#1E293B] sm:text-[4rem] lg:text-[4.65rem]">
+          Język polski bez chaosu. Matura bez stresu. Wyniki z pewnością.
         </h1>
-        <div className="mt-6 max-w-2xl space-y-4 text-[1.02rem] leading-8 text-[#526174] sm:text-lg">
-          <p>
-            Od lat pomagam uczniom przygotować się do matury, egzaminu ósmoklasisty oraz codziennej nauki języka polskiego w sposób uporządkowany, spokojny i przede wszystkim skuteczny.
-          </p>
-          <p>
-            Stworzyłam Klasę Mistrzów, aby pokazać, że język polski nie musi oznaczać chaosu, stresu i nauki wszystkiego naraz.
-          </p>
-          <p className="font-semibold text-[#1E293B]">Tutaj uczysz się tego, co naprawdę pomaga osiągać wyniki.</p>
-        </div>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <p className="mt-6 max-w-2xl text-[1.02rem] leading-8 text-[#526174] sm:text-lg">
+          Uporządkowane kursy, warsztaty, materiały PDF i korepetycje online, które prowadzą ucznia krok po kroku — od zagubienia do jasnego planu działania przed egzaminem.
+        </p>
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <PremiumButton href="#matura">Zapisz się na warsztaty</PremiumButton>
           <PremiumButton href="#sklep" variant="light">Kup materiały</PremiumButton>
           <PremiumButton href="#korepetycje" variant="ghost">Korepetycje indywidualne</PremiumButton>
         </div>
-        <div className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-3">
-          {[
-            ["spokój", "plan nauki bez chaosu"],
-            ["wynik", "praca na realnych zadaniach"],
-            ["opieka", "nauczyciel jako przewodnik"],
-          ].map(([value, label]) => (
-            <div key={value} className="rounded-[1.35rem] border border-white/70 bg-white/58 p-4 shadow-sm backdrop-blur">
-              <p className="font-serif text-2xl font-semibold tracking-[-0.05em] text-[#7C6CF6]">{value}</p>
-              <p className="mt-1 text-sm font-medium leading-5 text-[#526174]">{label}</p>
-            </div>
-          ))}
-        </div>
       </div>
-      <HeroPortrait />
+      <HeroStudyScene />
+    </div>
+  </section>
+);
+
+const TrustBadgesSection = () => (
+  <section className="px-4 py-7 sm:px-6 lg:py-9">
+    <div className="mx-auto grid max-w-6xl grid-cols-2 gap-3 lg:grid-cols-3">
+      {trustBadges.map((badge) => {
+        const Icon = badge.icon;
+        return (
+          <div key={badge.label} className="reveal group flex items-center gap-3 rounded-[1.25rem] border border-white/75 bg-white/60 p-3.5 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/82 hover:shadow-[0_16px_42px_rgba(30,41,59,0.09)] sm:p-4">
+            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-[#EAF2FF] text-[#7C6CF6] transition-colors group-hover:bg-[#7C6CF6] group-hover:text-white">
+              <Icon className="h-4 w-4" />
+            </span>
+            <span className="text-sm font-bold leading-5 text-[#1E293B] sm:text-[0.95rem]">{badge.label}</span>
+          </div>
+        );
+      })}
     </div>
   </section>
 );
 
 const AboutSection = () => (
-  <section id="o-mnie" className="px-4 py-14 sm:px-6 lg:py-20">
-    <div className="mx-auto grid max-w-7xl items-center gap-8 rounded-[2.2rem] border border-white/75 bg-white/58 p-5 shadow-[0_28px_85px_rgba(30,41,59,0.1)] backdrop-blur-xl sm:p-8 lg:grid-cols-[0.82fr_1.18fr]">
-      <div className="relative min-h-[520px] overflow-hidden rounded-[1.9rem] bg-[linear-gradient(180deg,#EAF2FF_0%,#FAF7F2_100%)]">
+  <section id="o-mnie" className="px-4 py-10 sm:px-6 lg:py-14">
+    <div className="mx-auto grid max-w-7xl items-center gap-7 rounded-[2rem] border border-white/75 bg-white/58 p-4 shadow-[0_26px_75px_rgba(30,41,59,0.09)] backdrop-blur-xl sm:p-7 lg:grid-cols-[0.86fr_1.14fr]">
+      <div className="relative min-h-[430px] overflow-hidden rounded-[1.75rem] bg-[linear-gradient(180deg,#EAF2FF_0%,#FAF7F2_100%)] sm:min-h-[500px]">
         <div className="absolute inset-x-8 bottom-8 h-20 rounded-[50%] bg-[#1E293B]/10 blur-2xl" />
-        <div className="absolute left-6 top-6 rounded-2xl bg-white/70 px-4 py-3 text-sm font-bold text-[#1E293B] shadow-lg backdrop-blur">
+        <div className="absolute left-5 top-5 z-20 rounded-2xl bg-white/72 px-4 py-3 text-sm font-bold text-[#1E293B] shadow-lg backdrop-blur">
           <BookOpen className="mr-2 inline h-3.5 w-3.5 text-[#7C6CF6]" />
           praca z tekstem
         </div>
-        <img src={TEACHER_BOOK} alt="Paulina podczas pracy z książką" className="absolute inset-x-0 bottom-0 mx-auto h-[520px] w-auto object-contain drop-shadow-[0_24px_40px_rgba(30,41,59,0.2)]" />
+        <img src={TEACHER_BOOK} alt="Paulina podczas pracy z książką" className="absolute inset-x-0 bottom-0 mx-auto h-[430px] w-auto object-contain drop-shadow-[0_24px_40px_rgba(30,41,59,0.2)] sm:h-[500px]" />
+        <div className="absolute bottom-5 right-5 z-20 hidden h-28 w-24 overflow-hidden rounded-3xl border-4 border-[#FAF7F2] bg-[#EAF2FF] shadow-[0_18px_40px_rgba(30,41,59,0.16)] sm:block">
+          <img src={TEACHER_PORTRAIT} alt="Paulina Spruch-Wójtowicz" className="h-full w-full object-cover object-top" />
+        </div>
       </div>
-      <div className="py-2 lg:py-6">
+      <div className="max-w-2xl py-2 lg:py-4">
         <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#E7C873]/45 bg-[#FFF7DC] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#6D5DE8]">
           <UserRound className="h-3 w-3" />
           O mnie
         </p>
-        <h2 className="font-serif text-[2.15rem] font-semibold leading-[1.03] tracking-[-0.05em] text-[#1E293B] sm:text-4xl lg:text-5xl">
+        <h2 className="font-serif text-[2rem] font-semibold leading-[1.05] tracking-[-0.05em] text-[#1E293B] sm:text-[2.65rem] lg:text-[3.1rem]">
           Poznaj osobę, która poprowadzi Cię do wyniku
         </h2>
-        <div className="mt-6 space-y-4 text-[1.02rem] leading-8 text-[#526174]">
+        <div className="mt-5 max-w-xl space-y-3.5 text-[1rem] leading-7 text-[#526174]">
           <p className="font-semibold text-[#1E293B]">Cześć, jestem Paulina.</p>
           <p>
             Od początku mojej pracy wierzę, że skuteczna nauka nie polega na zapamiętywaniu wszystkiego, ale na zrozumieniu schematów, logicznym myśleniu i pracy na tym, co naprawdę pojawia się na egzaminach.
@@ -414,7 +431,7 @@ const AboutSection = () => (
             Moim celem jest nie tylko przygotować Cię do egzaminu, ale pokazać, że język polski można zrozumieć w sposób prosty, logiczny i przewidywalny.
           </p>
         </div>
-        <div className="mt-7 grid gap-3 sm:grid-cols-2">
+        <div className="mt-6 grid gap-2.5 sm:grid-cols-2">
           {credibilityBadges.map((badge) => (
             <div key={badge} className="flex items-center gap-3 rounded-2xl bg-[#FAF7F2] p-3 text-sm font-bold text-[#1E293B]">
               <Check className="h-3.5 w-3.5 shrink-0 text-[#7C6CF6]" />
@@ -427,88 +444,46 @@ const AboutSection = () => (
   </section>
 );
 
-const TrustSection = () => (
-  <section className="px-4 py-12 sm:px-6 lg:py-16">
-    <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
-      {[
-        [Target, "Strategia zamiast chaosu", "Uczeń wie, czego się uczy, po co i jak to wykorzystać na egzaminie."],
-        [MessageCircle, "Ludzki język", "Bez akademickiego dystansu. Jasno, konkretnie i z szacunkiem do stresu ucznia."],
-        [ShieldCheck, "Autorytet i opieka", "Produkty edukacyjne prowadzą tak, jak prowadzi dobry nauczyciel: krok po kroku."],
-      ].map(([Icon, title, text]) => {
-        const IconComponent = Icon as typeof Target;
-        return (
-          <div key={title as string} className="premium-card reveal rounded-[1.8rem] border border-white/75 bg-white/62 p-5 shadow-sm backdrop-blur">
-            <div className="mb-5 grid h-10 w-10 place-items-center rounded-2xl bg-[#7C6CF6] text-white">
-              <IconComponent className="h-4 w-4" />
-            </div>
-            <h3 className="font-serif text-[1.55rem] font-semibold tracking-[-0.045em] text-[#1E293B]">{title as string}</h3>
-            <p className="mt-3 leading-7 text-[#526174]">{text as string}</p>
-          </div>
-        );
-      })}
-    </div>
-  </section>
-);
-
-const StudyDeskPreview = () => (
-  <div className="relative min-h-[300px] rounded-[1.8rem] bg-[#FAF7F2] p-5 shadow-inner">
-    <div className="absolute left-6 top-8 w-56 rotate-[-4deg] rounded-[1.2rem] border border-[#1E293B]/10 bg-white p-5 shadow-[0_18px_45px_rgba(30,41,59,0.12)]">
-      <p className="font-serif text-xl font-semibold tracking-[-0.04em] text-[#1E293B]">Plan lektury</p>
-      <div className="mt-4 space-y-2 text-sm text-[#526174]">
-        <p>1. Fabuła krok po kroku</p>
-        <p>2. Motywy i konteksty</p>
-        <p>3. Argumenty do rozprawki</p>
-      </div>
-    </div>
-    <div className="absolute bottom-8 right-6 w-64 rotate-[3deg] rounded-[1.2rem] bg-[#FFF7DC] p-5 shadow-[0_18px_45px_rgba(30,41,59,0.1)]">
-      <p className="font-serif text-lg font-semibold tracking-[-0.04em] text-[#1E293B]">Notatka z warsztatu</p>
-      <div className="mt-4 space-y-2">
-        <span className="block h-2 w-full rounded bg-[#1E293B]/20" />
-        <span className="block h-2 w-10/12 rounded bg-[#1E293B]/15" />
-        <span className="block h-2 w-8/12 rounded bg-[#7C6CF6]/30" />
-      </div>
-    </div>
-    <div className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[#7C6CF6] text-white shadow-xl">
-      <PenLine className="h-5 w-5" />
-    </div>
-  </div>
-);
-
 const MaturaSection = () => {
   const [selectedEpoch, setSelectedEpoch] = useState("Romantyzm");
 
   return (
-    <section id="matura" className="relative px-4 py-14 sm:px-6 lg:py-20">
+    <section id="matura" className="relative px-4 py-10 sm:px-6 lg:py-14">
       <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Strefa maturzysty"
-          title="Nie uczysz się wszystkiego. Uczysz się tego, co naprawdę pracuje na wynik."
-          description="Warsztaty i materiały porządkują lektury, epoki i argumentację tak, aby uczeń czuł kontrolę, pewność i gotowość do pisania."
+          title="Materiały i warsztaty, które zamieniają stres przed maturą w plan działania."
+          description="Zamiast długiej listy tematów — konkretne moduły pracy: lektura, motyw, kontekst, argument i gotowość do pisania."
         />
-        <div className="mt-10 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="premium-card reveal rounded-[1.9rem] border border-white/75 bg-white/68 p-6 shadow-[0_24px_70px_rgba(30,41,59,0.09)] backdrop-blur-xl sm:p-7">
+        <div className="mt-9 grid gap-5 lg:grid-cols-[1.02fr_0.98fr]">
+          <div className="rounded-[1.9rem] border border-white/75 bg-white/66 p-5 shadow-[0_24px_70px_rgba(30,41,59,0.09)] backdrop-blur-xl sm:p-6">
             <div className="flex items-start justify-between gap-5">
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-[#7C6CF6]">Warsztaty premium</p>
-                <h3 className="mt-3 font-serif text-[1.9rem] font-semibold tracking-[-0.045em] text-[#1E293B]">Warsztaty z lektur obowiązkowych</h3>
-                <p className="mt-3 text-[#526174]">Intensywne spotkania, które zamieniają lekturę w gotowy zestaw narzędzi do egzaminu.</p>
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-[#7C6CF6]">Warsztaty z lektur obowiązkowych</p>
+                <h3 className="mt-3 font-serif text-[1.9rem] font-semibold tracking-[-0.045em] text-[#1E293B]">2 godziny intensywnej pracy na tym, co naprawdę pojawia się na egzaminie</h3>
               </div>
-              <span className="rounded-2xl bg-[#1E293B] p-3 text-[#E7C873]"><BookMarked className="h-4 w-4" /></span>
+              <BookMarked className="mt-1 h-5 w-5 shrink-0 text-[#7C6CF6]" />
             </div>
-            <div className="mt-7 grid gap-3 sm:grid-cols-2">
-              {workshopFeatures.map((feature) => (
-                <div key={feature} className="flex items-center gap-3 rounded-2xl bg-[#FAF7F2]/78 p-3 text-sm font-semibold text-[#1E293B]">
-                  <Check className="h-3.5 w-3.5 shrink-0 text-[#7C6CF6]" />
-                  {feature}
-                </div>
-              ))}
-            </div>
-            <div className="mt-6">
-              <StudyDeskPreview />
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {maturaFeatures.map((feature) => {
+                const Icon = feature.icon;
+                return (
+                  <div key={feature.title} className="group rounded-[1.35rem] border border-[#1E293B]/7 bg-[#FAF7F2]/82 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_18px_45px_rgba(30,41,59,0.09)]">
+                    <div className="mb-3 flex items-center gap-3">
+                      <span className="grid h-9 w-9 place-items-center rounded-xl bg-[#EAF2FF] text-[#7C6CF6] transition-colors group-hover:bg-[#7C6CF6] group-hover:text-white">
+                        <Icon className="h-4 w-4" />
+                      </span>
+                      <h4 className="font-serif text-xl font-semibold tracking-[-0.045em] text-[#1E293B]">{feature.title}</h4>
+                    </div>
+                    <p className="text-sm leading-6 text-[#526174]">{feature.text}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
+
           <div className="grid gap-5">
-            <div className="premium-card reveal rounded-[1.9rem] bg-[#1E293B] p-6 text-white shadow-[0_24px_70px_rgba(30,41,59,0.2)] sm:p-7">
+            <div className="rounded-[1.9rem] bg-[#1E293B] p-5 text-white shadow-[0_24px_70px_rgba(30,41,59,0.2)] sm:p-6">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-[#E7C873]">Historia literatury pod klucz</p>
               <h3 className="mt-3 font-serif text-[1.9rem] font-semibold tracking-[-0.045em]">6 godzin powtórki — tylko to, co najważniejsze</h3>
               <div className="mt-5 flex flex-wrap gap-2">
@@ -539,10 +514,10 @@ const MaturaSection = () => {
                 </div>
               </div>
             </div>
-            <div className="premium-card reveal rounded-[1.9rem] border border-[#E7C873]/40 bg-[#FFF7DC] p-6 shadow-[0_20px_60px_rgba(231,200,115,0.16)] sm:p-7">
+            <div className="rounded-[1.9rem] border border-[#E7C873]/40 bg-[#FFF7DC] p-5 shadow-[0_20px_60px_rgba(231,200,115,0.16)] sm:p-6">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-[#7C6CF6]">Notatki PDF</p>
-              <h3 className="mt-3 font-serif text-[1.9rem] font-semibold tracking-[-0.045em] text-[#1E293B]">Najważniejsze epoki i lektury w jednym miejscu</h3>
-              <p className="mt-3 text-[#526174]">Materiały przypominające dobrze przygotowane notatki: czytelne, konkretne i gotowe do powtórki.</p>
+              <h3 className="mt-3 font-serif text-[1.85rem] font-semibold tracking-[-0.045em] text-[#1E293B]">Najważniejsze epoki i lektury w jednym miejscu</h3>
+              <p className="mt-3 text-[#526174]">Czytelne materiały do powtórki — stworzone pod realny egzamin, nie pod teorię dla teorii.</p>
               <a href="#sklep" className="mt-5 inline-flex items-center gap-2 font-bold text-[#7C6CF6]">Zobacz materiały <ChevronRight className="h-3.5 w-3.5" /></a>
             </div>
           </div>
@@ -553,63 +528,55 @@ const MaturaSection = () => {
 };
 
 const EighthGradeSection = () => (
-  <section id="osmoklasista" className="px-4 py-14 sm:px-6 lg:py-20">
-    <div className="mx-auto grid max-w-7xl items-center gap-8 rounded-[2.2rem] border border-white/75 bg-[#EAF2FF]/75 p-6 shadow-[0_28px_80px_rgba(30,41,59,0.09)] backdrop-blur-xl sm:p-8 lg:grid-cols-[0.9fr_1.1fr]">
-      <SectionIntro
-        align="left"
-        eyebrow="Strefa ósmoklasisty"
-        title="Kurs kompleksowy, który daje poczucie prowadzenia krok po kroku."
-        description="Lektury + formy wypowiedzi + przygotowanie do egzaminu — wszystko ułożone spokojnie, jasno i z myślą o realnym arkuszu."
-      />
-      <div className="grid gap-3 sm:grid-cols-2">
-        {eighthGradeItems.map((item, index) => (
-          <div key={item} className="premium-card reveal rounded-[1.4rem] border border-white/80 bg-white/78 p-4 shadow-sm backdrop-blur">
-            <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-2xl bg-[#7C6CF6] text-sm font-black text-white">{index + 1}</div>
-            <p className="font-bold tracking-[-0.03em] text-[#1E293B]">{item}</p>
-          </div>
-        ))}
+  <section id="osmoklasista" className="px-4 py-10 sm:px-6 lg:py-14">
+    <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/75 bg-[#EAF2FF]/72 p-5 shadow-[0_24px_72px_rgba(30,41,59,0.09)] backdrop-blur-xl sm:p-7">
+      <div className="grid items-end gap-5 lg:grid-cols-[0.78fr_1.22fr]">
+        <SectionIntro
+          align="left"
+          eyebrow="Strefa ósmoklasisty"
+          title="Kurs kompleksowy bez ciężkich bloków i bez zgadywania, co powtórzyć."
+          description="Lektury, formy wypowiedzi i arkusze ułożone w krótkie moduły, które pomagają przygotować się spokojnie i regularnie."
+        />
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+          {eighthGradeCards.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.title} className="group rounded-[1.3rem] border border-white/80 bg-white/78 p-3.5 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_16px_42px_rgba(30,41,59,0.09)] sm:p-4">
+                <span className="mb-3 grid h-9 w-9 place-items-center rounded-xl bg-[#FAF7F2] text-[#7C6CF6] transition-colors group-hover:bg-[#7C6CF6] group-hover:text-white">
+                  <Icon className="h-4 w-4" />
+                </span>
+                <p className="text-sm font-bold leading-5 tracking-[-0.02em] text-[#1E293B] sm:text-[0.95rem]">{item.title}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   </section>
 );
 
-const BookCover = ({ product }: { product: (typeof products)[number] }) => (
-  <div className="relative h-56 overflow-hidden rounded-[1.35rem] bg-[#1E293B] p-3 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.18)]">
-    <div className={cn("absolute inset-0", product.cover)} />
-    <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(rgba(255,255,255,.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:18px_18px]" />
-    <div className="relative flex h-full flex-col justify-between rounded-[1rem] border border-white/35 p-4 text-white shadow-inner">
-      <div>
-        <p className="text-[0.62rem] font-black uppercase tracking-[0.24em] text-[#E7C873]">Klasa Mistrzów PDF</p>
-        <h3 className="mt-5 font-serif text-3xl font-semibold leading-none tracking-[-0.055em]">{product.title.replace(" pod klucz", "")}</h3>
-        <p className="mt-2 text-xs font-semibold text-white/70">{product.author}</p>
-      </div>
-      <div>
-        <div className="mb-4 h-px w-full bg-white/35" />
-        <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-white/78">{product.accent}</p>
-      </div>
-    </div>
-  </div>
-);
-
 const PdfShopSection = () => (
-  <section id="sklep" className="px-4 py-14 sm:px-6 lg:py-20">
+  <section id="sklep" className="px-4 py-10 sm:px-6 lg:py-14">
     <div className="mx-auto max-w-7xl">
       <SectionIntro
         eyebrow="Sklep z materiałami PDF"
-        title="Materiały, które wyglądają jak wartościowe narzędzia do nauki — nie przypadkowe pliki."
-        description="Każdy produkt prowadzi przez lekturę lub egzamin: od zrozumienia, przez zapamiętanie, aż po użycie wiedzy w wypowiedzi."
+        title="Cyfrowe materiały do spokojnej, konkretnej powtórki."
+        description="Sekcję wizualną produktów dopracujemy po dodaniu właściwych okładek. Teraz najważniejsza jest czytelna oferta i szybka ścieżka zakupu."
       />
-      <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-9 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {products.map((product) => (
-          <div key={product.title} className="premium-card group reveal rounded-[1.9rem] border border-white/75 bg-white/72 p-4 shadow-[0_22px_65px_rgba(30,41,59,0.09)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(124,108,246,0.14)]">
-            <BookCover product={product} />
-            <div className="p-2 pt-5">
-              <h3 className="font-serif text-[1.55rem] font-semibold tracking-[-0.045em] text-[#1E293B]">{product.title}</h3>
-              <p className="mt-2 min-h-12 text-sm leading-6 text-[#526174]">{product.description}</p>
-              <div className="mt-5 flex items-center justify-between gap-3">
-                <span className="text-base font-black tracking-[-0.04em] text-[#1E293B]">Cena wkrótce</span>
-                <Button className="rounded-full bg-[#7C6CF6] px-5 font-bold text-white hover:bg-[#6655EA]">Kup materiał</Button>
-              </div>
+          <div key={product.title} className="group rounded-[1.65rem] border border-white/75 bg-white/70 p-5 shadow-[0_18px_55px_rgba(30,41,59,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_22px_70px_rgba(124,108,246,0.12)]">
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <span className="grid h-10 w-10 place-items-center rounded-2xl bg-[#EAF2FF] text-[#7C6CF6]">
+                <FileText className="h-4 w-4" />
+              </span>
+              <span className="rounded-full bg-[#FFF7DC] px-3 py-1 text-xs font-black text-[#1E293B]">PDF</span>
+            </div>
+            <h3 className="font-serif text-[1.55rem] font-semibold tracking-[-0.045em] text-[#1E293B]">{product.title}</h3>
+            <p className="mt-2 min-h-12 text-sm leading-6 text-[#526174]">{product.description}</p>
+            <div className="mt-5 flex items-center justify-between gap-3">
+              <span className="text-base font-black tracking-[-0.04em] text-[#1E293B]">Cena wkrótce</span>
+              <Button className="rounded-full bg-[#7C6CF6] px-5 font-bold text-white hover:bg-[#6655EA]">Kup materiał</Button>
             </div>
           </div>
         ))}
@@ -619,15 +586,15 @@ const PdfShopSection = () => (
 );
 
 const FreeStudentZoneSection = () => (
-  <section id="darmowe" className="px-4 py-14 sm:px-6 lg:py-20">
-    <div className="mx-auto grid max-w-7xl gap-8 overflow-hidden rounded-[2.2rem] bg-[#1E293B] p-6 text-white shadow-[0_30px_95px_rgba(30,41,59,0.22)] sm:p-8 lg:grid-cols-[1fr_0.9fr]">
+  <section id="darmowe" className="px-4 py-10 sm:px-6 lg:py-14">
+    <div className="mx-auto grid max-w-7xl gap-6 overflow-hidden rounded-[2rem] bg-[#1E293B] p-5 text-white shadow-[0_28px_82px_rgba(30,41,59,0.2)] sm:p-7 lg:grid-cols-[1fr_0.9fr]">
       <div className="relative z-10">
         <p className="mb-4 inline-flex rounded-full bg-white/10 px-4 py-2 text-[0.68rem] font-black uppercase tracking-[0.2em] text-[#E7C873]">Darmowa strefa ucznia</p>
-        <h2 className="font-serif text-[2.15rem] font-semibold leading-[1.03] tracking-[-0.05em] sm:text-4xl lg:text-5xl">Darmowe materiały na dobry start</h2>
-        <p className="mt-5 max-w-2xl text-base leading-8 text-white/74 sm:text-lg">Zbuduj pierwsze poczucie pewności bez presji zakupu — a potem naturalnie przejdź do pełnych materiałów, warsztatów lub korepetycji.</p>
-        <div className="mt-7 rounded-[1.8rem] border border-white/15 bg-white/8 p-5 backdrop-blur">
+        <h2 className="font-serif text-[2rem] font-semibold leading-[1.05] tracking-[-0.05em] sm:text-[2.65rem] lg:text-[3.15rem]">Darmowe materiały na dobry start</h2>
+        <p className="mt-4 max-w-2xl text-base leading-7 text-white/74 sm:text-lg">Zbuduj pierwsze poczucie pewności bez presji zakupu — a potem naturalnie przejdź do pełnych materiałów, warsztatów lub korepetycji.</p>
+        <div className="mt-6 rounded-[1.65rem] border border-white/15 bg-white/8 p-5 backdrop-blur">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-[#E7C873]">Materiał startowy</p>
-          <h3 className="mt-3 font-serif text-[1.9rem] font-semibold tracking-[-0.045em]">Jak napisać rozprawkę na 100%?</h3>
+          <h3 className="mt-3 font-serif text-[1.75rem] font-semibold tracking-[-0.045em]">Jak napisać rozprawkę na 100%?</h3>
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {freeBenefits.map((benefit) => (
               <div key={benefit} className="flex items-center gap-3 text-sm text-white/78">
@@ -637,12 +604,11 @@ const FreeStudentZoneSection = () => (
             ))}
           </div>
         </div>
-        <Button className="mt-7 rounded-full bg-[#E7C873] px-7 py-6 font-black text-[#1E293B] hover:bg-[#f0d888]">Załóż darmowe konto <ArrowRight className="h-4 w-4" /></Button>
+        <Button className="mt-6 rounded-full bg-[#E7C873] px-7 py-6 font-black text-[#1E293B] hover:bg-[#f0d888]">Załóż darmowe konto <ArrowRight className="h-4 w-4" /></Button>
       </div>
-      <div className="relative min-h-[330px]">
-        <div className="absolute inset-0 rounded-[2rem] bg-[#7C6CF6]/20 blur-3xl" />
-        <div className="relative ml-auto max-w-md rounded-[1.9rem] border border-white/15 bg-white/10 p-5 backdrop-blur-2xl">
-          <div className="rounded-[1.5rem] bg-[#FAF7F2] p-5 text-[#1E293B]">
+      <div className="relative min-h-[300px]">
+        <div className="relative ml-auto max-w-md rounded-[1.75rem] border border-white/15 bg-white/10 p-4 backdrop-blur-2xl">
+          <div className="rounded-[1.4rem] bg-[#FAF7F2] p-5 text-[#1E293B]">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-[#7C6CF6]">PDF startowy</p>
@@ -650,7 +616,7 @@ const FreeStudentZoneSection = () => (
               </div>
               <ClipboardCheck className="h-5 w-5 text-[#7C6CF6]" />
             </div>
-            <div className="mt-6 space-y-3">
+            <div className="mt-5 space-y-3">
               {["Teza i argument", "Kontekst", "Wniosek", "Checklist PDF"].map((step, index) => (
                 <div key={step} className="flex items-center justify-between rounded-2xl bg-white p-4 shadow-sm">
                   <span className="font-bold">{step}</span>
@@ -669,8 +635,8 @@ const TutoringSection = () => {
   const [slot, setSlot] = useState("17:30");
 
   return (
-    <section id="korepetycje" className="px-4 py-14 sm:px-6 lg:py-20">
-      <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+    <section id="korepetycje" className="px-4 py-10 sm:px-6 lg:py-14">
+      <div className="mx-auto grid max-w-7xl items-center gap-7 lg:grid-cols-[0.95fr_1.05fr]">
         <div>
           <SectionIntro
             align="left"
@@ -678,7 +644,7 @@ const TutoringSection = () => {
             title="Potrzebujesz indywidualnego wsparcia?"
             description="Elegancki, spokojny proces rezerwacji i lekcje online prowadzone pod konkretny cel: egzamin, zaległości albo pewność w pisaniu."
           />
-          <div className="mt-7 grid gap-3">
+          <div className="mt-6 grid gap-3">
             {tutoringBenefits.map((benefit) => (
               <div key={benefit} className="flex items-center gap-4 rounded-2xl border border-white/75 bg-white/68 p-4 shadow-sm backdrop-blur">
                 <HeartHandshake className="h-4 w-4 shrink-0 text-[#7C6CF6]" />
@@ -686,18 +652,18 @@ const TutoringSection = () => {
               </div>
             ))}
           </div>
-          <Button className="mt-7 rounded-full bg-[#7C6CF6] px-7 py-6 font-black text-white hover:bg-[#6655EA]">Zarezerwuj termin <CalendarDays className="h-4 w-4" /></Button>
+          <Button className="mt-6 rounded-full bg-[#7C6CF6] px-7 py-6 font-black text-white hover:bg-[#6655EA]">Zarezerwuj termin <CalendarDays className="h-4 w-4" /></Button>
         </div>
-        <div className="premium-card reveal rounded-[2rem] border border-white/75 bg-white/72 p-5 shadow-[0_28px_85px_rgba(30,41,59,0.11)] backdrop-blur-xl sm:p-6">
-          <div className="rounded-[1.6rem] bg-[#FAF7F2] p-5">
+        <div className="rounded-[1.9rem] border border-white/75 bg-white/72 p-5 shadow-[0_26px_75px_rgba(30,41,59,0.1)] backdrop-blur-xl sm:p-6">
+          <div className="rounded-[1.55rem] bg-[#FAF7F2] p-5">
             <div className="flex items-center justify-between gap-4">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-[#7C6CF6]">Kalendarz rezerwacji</p>
-                <h3 className="mt-2 font-serif text-[1.9rem] font-semibold tracking-[-0.045em] text-[#1E293B]">Wybierz spokojny termin</h3>
+                <h3 className="mt-2 font-serif text-[1.75rem] font-semibold tracking-[-0.045em] text-[#1E293B]">Wybierz spokojny termin</h3>
               </div>
               <CalendarDays className="h-5 w-5 text-[#7C6CF6]" />
             </div>
-            <div className="mt-6 grid grid-cols-5 gap-2">
+            <div className="mt-5 grid grid-cols-5 gap-2">
               {["Pn", "Wt", "Śr", "Cz", "Pt"].map((day, index) => (
                 <div key={day} className={cn("rounded-2xl p-3 text-center", index === 2 ? "bg-[#1E293B] text-white" : "bg-white text-[#1E293B]")}> 
                   <p className="text-xs font-bold text-current/70">{day}</p>
@@ -705,7 +671,7 @@ const TutoringSection = () => {
                 </div>
               ))}
             </div>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
               {timeSlots.map((time) => (
                 <button
                   key={time}
@@ -720,7 +686,7 @@ const TutoringSection = () => {
                 </button>
               ))}
             </div>
-            <div className="mt-5 rounded-[1.4rem] bg-[#EAF2FF] p-5">
+            <div className="mt-5 rounded-[1.35rem] bg-[#EAF2FF] p-5">
               <p className="font-bold text-[#1E293B]">Wybrany termin: {slot}</p>
               <p className="mt-2 text-sm leading-6 text-[#526174]">Po rezerwacji uczeń otrzymuje plan spotkania i jasny kierunek pracy przed lekcją.</p>
             </div>
@@ -736,18 +702,18 @@ const StudentDashboardSection = () => {
   const TabIcon = tab.icon;
 
   return (
-    <section id="strefa-ucznia" className="px-4 py-14 sm:px-6 lg:py-20">
+    <section id="strefa-ucznia" className="px-4 py-10 sm:px-6 lg:py-14">
       <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Strefa ucznia"
           title="Panel ucznia jako uporządkowana biblioteka nauki."
           description="Platforma jest dodatkiem do pracy z nauczycielem: pomaga przechowywać materiały, sprawdzać moduły i pamiętać o warsztatach."
         />
-        <div className="premium-card reveal mt-10 overflow-hidden rounded-[2.2rem] border border-white/75 bg-white/70 p-4 shadow-[0_30px_95px_rgba(30,41,59,0.12)] backdrop-blur-2xl sm:p-6">
-          <div className="grid gap-4 rounded-[1.9rem] bg-[#1E293B] p-4 text-white lg:grid-cols-[280px_1fr] sm:p-6">
-            <aside className="rounded-[1.5rem] bg-white/8 p-4">
+        <div className="mt-9 overflow-hidden rounded-[2rem] border border-white/75 bg-white/70 p-4 shadow-[0_28px_82px_rgba(30,41,59,0.11)] backdrop-blur-2xl sm:p-5">
+          <div className="grid gap-4 rounded-[1.75rem] bg-[#1E293B] p-4 text-white lg:grid-cols-[270px_1fr] sm:p-5">
+            <aside className="rounded-[1.4rem] bg-white/8 p-4">
               <KlasaMistrzowLogo markClassName="bg-white" textClassName="[&_span:first-child]:text-white [&_span:last-child]:text-[#E7C873]" />
-              <div className="mt-7 grid gap-2">
+              <div className="mt-6 grid gap-2">
                 {dashboardTabs.map((item) => {
                   const Icon = item.icon;
                   return (
@@ -779,24 +745,24 @@ const StudentDashboardSection = () => {
                 })}
               </div>
             </aside>
-            <main className="rounded-[1.5rem] bg-[#FAF7F2] p-5 text-[#1E293B] sm:p-6">
+            <main className="rounded-[1.4rem] bg-[#FAF7F2] p-5 text-[#1E293B]">
               <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-start">
                 <div>
                   <p className="text-xs font-black uppercase tracking-[0.18em] text-[#7C6CF6]">{tab.label}</p>
-                  <h3 className="mt-3 font-serif text-[1.9rem] font-semibold tracking-[-0.045em]">{tab.title}</h3>
+                  <h3 className="mt-3 font-serif text-[1.75rem] font-semibold tracking-[-0.045em]">{tab.title}</h3>
                   <p className="mt-3 max-w-2xl text-[#526174]">{tab.description}</p>
                 </div>
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#7C6CF6] text-white shadow-xl">
-                  <TabIcon className="h-5 w-5" />
+                <div className="grid h-11 w-11 place-items-center rounded-2xl bg-[#7C6CF6] text-white shadow-xl">
+                  <TabIcon className="h-4 w-4" />
                 </div>
               </div>
-              <div className="mt-7 grid gap-4 lg:grid-cols-[1fr_0.78fr]">
-                <div className="rounded-[1.5rem] bg-white p-5 shadow-sm">
+              <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_0.78fr]">
+                <div className="rounded-[1.4rem] bg-white p-5 shadow-sm">
                   <div className="flex items-center justify-between">
                     <p className="font-black">Moje kursy i lektury</p>
                     <span className="rounded-full bg-[#E7C873] px-3 py-1 text-xs font-black">realny plan</span>
                   </div>
-                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
                     {dashboardModules.map((module) => {
                       const Icon = module.icon;
                       return (
@@ -811,9 +777,9 @@ const StudentDashboardSection = () => {
                     })}
                   </div>
                 </div>
-                <div className="rounded-[1.5rem] bg-[#EAF2FF] p-5 shadow-sm">
+                <div className="rounded-[1.4rem] bg-[#EAF2FF] p-5 shadow-sm">
                   <p className="font-black">Najważniejsze teraz</p>
-                  <div className="mt-5 space-y-3 text-sm font-semibold text-[#1E293B]">
+                  <div className="mt-4 space-y-3 text-sm font-semibold text-[#1E293B]">
                     <div className="flex items-center gap-3 rounded-2xl bg-white p-4"><Download className="h-4 w-4 text-[#7C6CF6]" /> Pobrane PDF: 8</div>
                     <div className="flex items-center gap-3 rounded-2xl bg-white p-4"><CalendarDays className="h-4 w-4 text-[#7C6CF6]" /> Najbliższy warsztat: Czwartek 18:00</div>
                     <div className="flex items-center gap-3 rounded-2xl bg-white p-4"><ScrollText className="h-4 w-4 text-[#7C6CF6]" /> Aktualny moduł: Rozprawka</div>
@@ -829,14 +795,14 @@ const StudentDashboardSection = () => {
 };
 
 const SiteFooter = () => (
-  <footer className="px-4 pb-8 pt-14 sm:px-6">
-    <div className="mx-auto max-w-7xl rounded-[2.2rem] border border-white/75 bg-white/62 p-6 shadow-[0_22px_65px_rgba(30,41,59,0.08)] backdrop-blur-xl sm:p-8">
-      <div className="grid gap-9 lg:grid-cols-[1fr_1.4fr]">
+  <footer className="px-4 pb-7 pt-10 sm:px-6">
+    <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/75 bg-white/62 p-6 shadow-[0_22px_65px_rgba(30,41,59,0.08)] backdrop-blur-xl sm:p-7">
+      <div className="grid gap-8 lg:grid-cols-[1fr_1.4fr]">
         <div>
           <KlasaMistrzowLogo />
           <p className="mt-5 max-w-md leading-7 text-[#526174]">Premium marka edukacyjna Pauliny Spruch-Wójtowicz: warsztaty, PDF, korepetycje i strefa ucznia w jednym spokojnym systemie nauki.</p>
         </div>
-        <div className="grid gap-8 sm:grid-cols-3">
+        <div className="grid gap-7 sm:grid-cols-3">
           <div>
             <p className="font-black text-[#1E293B]">Oferta</p>
             <div className="mt-4 grid gap-3 text-sm font-semibold text-[#526174]">
@@ -872,8 +838,8 @@ export const KlasaMistrzowHome = () => {
     <main className="min-h-screen overflow-hidden bg-[#FAF7F2] text-[#1E293B]">
       <SiteHeader />
       <HeroSection />
+      <TrustBadgesSection />
       <AboutSection />
-      <TrustSection />
       <MaturaSection />
       <EighthGradeSection />
       <PdfShopSection />
