@@ -7,6 +7,7 @@ import {
   FileText,
   GraduationCap,
   PlayCircle,
+  ReceiptText,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -15,7 +16,16 @@ import { PlatformShell } from "@/components/platform-shell";
 import { usePlatformDemo } from "@/hooks/use-platform-demo";
 
 export const StudentDashboardView = () => {
-  const { currentUser, state, studentBookings, studentProgress, studentPurchases, addBooking } = usePlatformDemo();
+  const {
+    currentUser,
+    state,
+    studentBookings,
+    studentProgress,
+    studentPurchases,
+    addBooking,
+    purchasedProducts,
+    studentOrders,
+  } = usePlatformDemo();
 
   const darmoweMaterialy = state.materials.filter((material) => material.accessType === "darmowy");
   const mojeMaterialy = state.materials.filter((material) =>
@@ -30,6 +40,10 @@ export const StudentDashboardView = () => {
       return slot ? { ...slot, topic: booking.topic } : null;
     })
     .filter(Boolean);
+
+  const zakupionePdf = purchasedProducts.filter((product) => product.type === "pdf");
+  const zakupioneKursyVideo = purchasedProducts.filter((product) => product.type === "kurs-video");
+  const zakupioneKonsultacje = purchasedProducts.filter((product) => product.type === "konsultacja-indywidualna");
 
   return (
     <PlatformShell
@@ -174,6 +188,60 @@ export const StudentDashboardView = () => {
         </section>
       </div>
 
+      <div className="mt-6 grid gap-6 xl:grid-cols-2">
+        <section className="rounded-[1.8rem] border border-white/75 bg-white/72 p-6 shadow-[0_24px_70px_rgba(30,41,59,0.08)] backdrop-blur-xl">
+          <div className="flex items-center gap-3">
+            <span className="grid h-10 w-10 place-items-center rounded-2xl bg-[#EAF2FF] text-[#7C6CF6]">
+              <FileText className="h-4 w-4" />
+            </span>
+            <div>
+              <h3 className="font-serif text-2xl font-semibold tracking-[-0.04em]">Zakupione PDF</h3>
+              <p className="text-sm text-[#526174]">Materiały gotowe do pobrania i pracy własnej</p>
+            </div>
+          </div>
+          <div className="mt-5 grid gap-3">
+            {zakupionePdf.length > 0 ? (
+              zakupionePdf.map((product) => (
+                <div key={product.id} className="rounded-[1.2rem] bg-[#FAF7F2] p-4">
+                  <p className="font-semibold text-[#1E293B]">{product.title}</p>
+                  <p className="mt-1 text-sm text-[#526174]">{product.shortDescription}</p>
+                </div>
+              ))
+            ) : (
+              <p className="rounded-[1.2rem] bg-[#FAF7F2] p-4 text-sm text-[#526174]">
+                Nie masz jeszcze zakupionych PDF-ów.
+              </p>
+            )}
+          </div>
+        </section>
+
+        <section className="rounded-[1.8rem] border border-white/75 bg-white/72 p-6 shadow-[0_24px_70px_rgba(30,41,59,0.08)] backdrop-blur-xl">
+          <div className="flex items-center gap-3">
+            <span className="grid h-10 w-10 place-items-center rounded-2xl bg-[#FFF7DC] text-[#1E293B]">
+              <PlayCircle className="h-4 w-4" />
+            </span>
+            <div>
+              <h3 className="font-serif text-2xl font-semibold tracking-[-0.04em]">Zakupione kursy video</h3>
+              <p className="text-sm text-[#526174]">Kursy przypisane automatycznie po zakupie</p>
+            </div>
+          </div>
+          <div className="mt-5 grid gap-3">
+            {zakupioneKursyVideo.length > 0 ? (
+              zakupioneKursyVideo.map((product) => (
+                <div key={product.id} className="rounded-[1.2rem] bg-[#FAF7F2] p-4">
+                  <p className="font-semibold text-[#1E293B]">{product.title}</p>
+                  <p className="mt-1 text-sm text-[#526174]">{product.shortDescription}</p>
+                </div>
+              ))
+            ) : (
+              <p className="rounded-[1.2rem] bg-[#FAF7F2] p-4 text-sm text-[#526174]">
+                Nie masz jeszcze zakupionych kursów video.
+              </p>
+            )}
+          </div>
+        </section>
+      </div>
+
       <div className="mt-6 grid gap-6 xl:grid-cols-[1fr_1fr]">
         <section className="rounded-[1.8rem] border border-white/75 bg-white/72 p-6 shadow-[0_24px_70px_rgba(30,41,59,0.08)] backdrop-blur-xl">
           <div className="flex items-center gap-3">
@@ -190,8 +258,12 @@ export const StudentDashboardView = () => {
             {dostepneTerminy.map((slot) => (
               <div key={slot.id} className="flex flex-col gap-3 rounded-[1.2rem] bg-[#FAF7F2] p-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="font-semibold text-[#1E293B]">{slot.date} · {slot.time}</p>
-                  <p className="text-sm text-[#526174]">{slot.duration} · {slot.price} zł</p>
+                  <p className="font-semibold text-[#1E293B]">
+                    {slot.date} · {slot.time}
+                  </p>
+                  <p className="text-sm text-[#526174]">
+                    {slot.duration} · {slot.price} zł
+                  </p>
                 </div>
                 <Button
                   className="rounded-full bg-[#7C6CF6] text-white hover:bg-[#6655EA]"
@@ -213,12 +285,70 @@ export const StudentDashboardView = () => {
             {mojeTerminy.length > 0 ? (
               mojeTerminy.map((slot) => (
                 <div key={slot?.id} className="rounded-[1rem] bg-white/8 p-4">
-                  <p className="font-semibold">{slot?.date} · {slot?.time}</p>
+                  <p className="font-semibold">
+                    {slot?.date} · {slot?.time}
+                  </p>
                   <p className="mt-1 text-sm text-white/70">{slot?.topic}</p>
                 </div>
               ))
             ) : (
               <p className="text-sm text-white/70">Nie masz jeszcze zapisanych terminów.</p>
+            )}
+          </div>
+        </section>
+      </div>
+
+      <div className="mt-6 grid gap-6 xl:grid-cols-2">
+        <section className="rounded-[1.8rem] border border-white/75 bg-white/72 p-6 shadow-[0_24px_70px_rgba(30,41,59,0.08)] backdrop-blur-xl">
+          <div className="flex items-center gap-3">
+            <span className="grid h-10 w-10 place-items-center rounded-2xl bg-[#EAF2FF] text-[#7C6CF6]">
+              <CalendarDays className="h-4 w-4" />
+            </span>
+            <div>
+              <h3 className="font-serif text-2xl font-semibold tracking-[-0.04em]">Konsultacje</h3>
+              <p className="text-sm text-[#526174]">Zakupione konsultacje i dostęp do spotkań</p>
+            </div>
+          </div>
+          <div className="mt-5 grid gap-3">
+            {zakupioneKonsultacje.length > 0 ? (
+              zakupioneKonsultacje.map((product) => (
+                <div key={product.id} className="rounded-[1.2rem] bg-[#FAF7F2] p-4">
+                  <p className="font-semibold text-[#1E293B]">{product.title}</p>
+                  <p className="mt-1 text-sm text-[#526174]">{product.shortDescription}</p>
+                </div>
+              ))
+            ) : (
+              <p className="rounded-[1.2rem] bg-[#FAF7F2] p-4 text-sm text-[#526174]">
+                Nie masz jeszcze zakupionych konsultacji.
+              </p>
+            )}
+          </div>
+        </section>
+
+        <section className="rounded-[1.8rem] border border-white/75 bg-white/72 p-6 shadow-[0_24px_70px_rgba(30,41,59,0.08)] backdrop-blur-xl">
+          <div className="flex items-center gap-3">
+            <span className="grid h-10 w-10 place-items-center rounded-2xl bg-[#FFF7DC] text-[#1E293B]">
+              <ReceiptText className="h-4 w-4" />
+            </span>
+            <div>
+              <h3 className="font-serif text-2xl font-semibold tracking-[-0.04em]">Historia zakupów</h3>
+              <p className="text-sm text-[#526174]">Twoje ostatnie zamówienia i zakupione produkty</p>
+            </div>
+          </div>
+          <div className="mt-5 grid gap-3">
+            {studentOrders.length > 0 ? (
+              studentOrders.map((order) => (
+                <div key={order.id} className="rounded-[1.2rem] bg-[#FAF7F2] p-4">
+                  <p className="font-semibold text-[#1E293B]">Zamówienie {order.id.slice(0, 14)}</p>
+                  <p className="mt-1 text-sm text-[#526174]">
+                    {new Date(order.createdAt).toLocaleDateString("pl-PL")} · {order.items.length} produktów
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p className="rounded-[1.2rem] bg-[#FAF7F2] p-4 text-sm text-[#526174]">
+                Nie masz jeszcze historii zakupów.
+              </p>
             )}
           </div>
         </section>
@@ -241,9 +371,7 @@ export const StudentDashboardView = () => {
                 <CheckCircle2 className="h-4 w-4 text-[#7C6CF6]" />
                 <p className="font-semibold text-[#1E293B]">{item.title}</p>
               </div>
-              <p className="mt-3 text-sm text-[#526174]">
-                {item.progress ? `${item.progress}%` : item.status}
-              </p>
+              <p className="mt-3 text-sm text-[#526174]">{item.progress ? `${item.progress}%` : item.status}</p>
             </div>
           ))}
         </div>

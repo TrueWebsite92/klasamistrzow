@@ -37,6 +37,7 @@ import { cn } from "@/lib/utils";
 import { KlasaMistrzowLogo } from "./klasa-mistrzow-logo";
 
 const TEACHER_BOOK = "/assets/teacher-book.png";
+const TEACHER_PORTRAIT = "/assets/teacher-portrait.png";
 
 const navigation = [
   { label: "O mnie", href: "/#o-mnie", external: true },
@@ -82,10 +83,10 @@ const trustBadges = [
 ];
 
 const credibilityBadges = [
-  "Setki przeprowadzonych godzin zajęć",
-  "Indywidualne podejście",
-  "Materiały tworzone pod realne egzaminy",
-  "Nauka oparta na zrozumieniu",
+  "Sorbonie w Paryżu",
+  "Italianistyka i prawo",
+  "Literatura, języki i podróże",
+  "Premium podejście do nauki",
 ];
 
 const maturaFeatures = [
@@ -405,12 +406,12 @@ const AboutSection = () => (
         <div className="absolute inset-x-8 bottom-8 h-20 rounded-[50%] bg-[#1E293B]/10 blur-2xl" />
         <div className="absolute left-5 top-5 z-20 rounded-2xl bg-white/72 px-4 py-3 text-sm font-bold text-[#1E293B] shadow-lg backdrop-blur">
           <BookOpen className="mr-2 inline h-3.5 w-3.5 text-[#7C6CF6]" />
-          praca z tekstem
+          Paulina Spruch-Wójtowicz
         </div>
         <img
-          src={TEACHER_BOOK}
-          alt="Paulina podczas pracy z książką"
-          className="absolute inset-x-0 bottom-0 mx-auto h-[440px] w-auto object-contain object-bottom drop-shadow-[0_24px_40px_rgba(30,41,59,0.2)] sm:h-[500px]"
+          src={TEACHER_PORTRAIT}
+          alt="Paulina Spruch-Wójtowicz"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
       </div>
       <div className="max-w-2xl py-2 lg:py-4">
@@ -419,18 +420,26 @@ const AboutSection = () => (
           O mnie
         </p>
         <h2 className="font-serif text-[2rem] font-semibold leading-[1.05] tracking-[-0.05em] text-[#1E293B] sm:text-[2.65rem] lg:text-[3.1rem]">
-          Poznaj osobę, która poprowadzi Cię do wyniku
+          Poznaj Paulinę i świat, z którego wyrasta Klasa Mistrzów
         </h2>
-        <div className="mt-5 max-w-xl space-y-3.5 text-[1rem] leading-7 text-[#526174]">
-          <p className="font-semibold text-[#1E293B]">Cześć, jestem Paulina.</p>
-          <p>
-            Od początku mojej pracy wierzę, że skuteczna nauka nie polega na zapamiętywaniu wszystkiego, ale na zrozumieniu schematów, logicznym myśleniu i pracy na tym, co naprawdę pojawia się na egzaminach.
+        <div className="mt-5 max-w-xl space-y-4 text-[1rem] leading-7 text-[#526174]">
+          <p className="font-semibold text-[#1E293B]">
+            Paulina Spruch-Wójtowicz to miłośniczka języków, literatury i podróży.
           </p>
           <p>
-            Na co dzień pomagam uczniom przygotować się do matury oraz egzaminu ósmoklasisty, tworząc materiały, warsztaty i indywidualne lekcje, które porządkują wiedzę i dają poczucie kontroli.
+            Absolwentka literatury francuskiej i polskiej na Sorbonie w Paryżu, italianistyki na Uniwersytecie Wrocławskim oraz prawa na Uniwersytecie Zielonogórskim.
           </p>
           <p>
-            Moim celem jest nie tylko przygotować Cię do egzaminu, ale pokazać, że język polski można zrozumieć w sposób prosty, logiczny i przewidywalny.
+            Najlepiej czuje się pomiędzy stronami dobrej książki, dźwiękami włoskiej muzyki a planowaniem kolejnej podróży.
+          </p>
+          <p>
+            Uwielbia odkrywać nowe miejsca, poznawać ludzi i kultury oraz wracać z walizką pełną wspomnień.
+          </p>
+          <p>
+            Szczególną słabość ma do kryminałów, klimatycznych włoskich miasteczek i koncertów na żywo.
+          </p>
+          <p>
+            Wierzy, że ciekawość świata jest jedną z najcenniejszych cech człowieka, dlatego nieustannie szuka nowych inspiracji — zarówno w książkach, jak i podczas podróży.
           </p>
         </div>
         <div className="mt-6 grid gap-2.5 sm:grid-cols-2">
@@ -599,9 +608,7 @@ const FreeStudentZoneSection = () => (
       <div className="relative z-10">
         <p className="mb-4 inline-flex rounded-full bg-white/10 px-4 py-2 text-[0.68rem] font-black uppercase tracking-[0.2em] text-[#E7C873]">Strefa materiałów</p>
         <h2 className="font-serif text-[2rem] font-semibold leading-[1.05] tracking-[-0.05em] sm:text-[2.65rem] lg:text-[3.15rem]">Materiały na dobry start</h2>
-        <p className="mt-4 max-w-2xl text-base leading-7 text-white/74 sm:text-lg">
-          Po założeniu konta uczeń od razu otrzymuje dostęp do materiałów, które pomagają spokojnie rozpocząć naukę i wejść w rytm pracy.
-        </p>
+        <p className="mt-4 max-w-2xl text-base leading-7 text-white/74 sm:text-lg">Po założeniu konta uczeń od razu otrzymuje dostęp do materiałów, które pomagają spokojnie rozpocząć naukę i wejść w rytm pracy.</p>
         <div className="mt-6 rounded-[1.65rem] border border-white/15 bg-white/8 p-5 backdrop-blur">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-[#E7C873]">Materiał startowy</p>
           <h3 className="mt-3 font-serif text-[1.75rem] font-semibold tracking-[-0.045em]">Jak napisać rozprawkę na 100%</h3>
@@ -634,14 +641,7 @@ const FreeStudentZoneSection = () => (
               {["Teza i argument", "Kontekst", "Wniosek", "Lista kontrolna"].map((step, index) => (
                 <div key={step} className="flex items-center justify-between rounded-2xl bg-white p-3.5 shadow-sm">
                   <span className="font-bold">{step}</span>
-                  <span
-                    className={cn(
-                      "rounded-full px-3 py-1 text-xs font-black",
-                      index < 3 ? "bg-[#EAF2FF] text-[#7C6CF6]" : "bg-[#E7C873] text-[#1E293B]",
-                    )}
-                  >
-                    {index < 3 ? "część" : "plan"}
-                  </span>
+                  <span className={cn("rounded-full px-3 py-1 text-xs font-black", index < 3 ? "bg-[#EAF2FF] text-[#7C6CF6]" : "bg-[#E7C873] text-[#1E293B]")}>{index < 3 ? "część" : "plan"}</span>
                 </div>
               ))}
             </div>
@@ -772,15 +772,9 @@ const StudentDashboardSection = () => (
               <div className="rounded-[1.4rem] bg-[#EAF2FF] p-5 shadow-sm">
                 <p className="font-black">Najważniejsze teraz</p>
                 <div className="mt-4 space-y-3 text-sm font-semibold text-[#1E293B]">
-                  <div className="flex items-center gap-3 rounded-2xl bg-white p-4">
-                    <Download className="h-4 w-4 text-[#7C6CF6]" /> Materiały gotowe do pobrania
-                  </div>
-                  <div className="flex items-center gap-3 rounded-2xl bg-white p-4">
-                    <CalendarDays className="h-4 w-4 text-[#7C6CF6]" /> Najbliższy warsztat: Czwartek 18:00
-                  </div>
-                  <div className="flex items-center gap-3 rounded-2xl bg-white p-4">
-                    <ScrollText className="h-4 w-4 text-[#7C6CF6]" /> Aktualny moduł: Rozprawka
-                  </div>
+                  <div className="flex items-center gap-3 rounded-2xl bg-white p-4"><Download className="h-4 w-4 text-[#7C6CF6]" /> Materiały gotowe do pobrania</div>
+                  <div className="flex items-center gap-3 rounded-2xl bg-white p-4"><CalendarDays className="h-4 w-4 text-[#7C6CF6]" /> Najbliższy warsztat: Czwartek 18:00</div>
+                  <div className="flex items-center gap-3 rounded-2xl bg-white p-4"><ScrollText className="h-4 w-4 text-[#7C6CF6]" /> Aktualny moduł: Rozprawka</div>
                 </div>
               </div>
             </div>
