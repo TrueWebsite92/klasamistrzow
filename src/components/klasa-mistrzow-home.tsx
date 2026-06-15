@@ -17,14 +17,11 @@ import {
   Mail,
   Megaphone,
   Menu,
-  MessageCircle,
   NotebookPen,
   NotebookTabs,
   Pencil,
-  PenLine,
   ReceiptText,
   ScrollText,
-  ShieldCheck,
   Sparkles,
   UserRound,
 } from "lucide-react";
@@ -41,7 +38,6 @@ import {
 import { cn } from "@/lib/utils";
 import { KlasaMistrzowLogo } from "./klasa-mistrzow-logo";
 
-const TEACHER_PORTRAIT = "/assets/teacher-portrait.png";
 const TEACHER_BOOK = "/assets/teacher-book.png";
 
 const navigation = [
@@ -55,12 +51,36 @@ const navigation = [
 ];
 
 const trustBadges = [
-  { label: "Plan nauki bez chaosu", icon: NotebookTabs },
-  { label: "Nauka krok po kroku", icon: NotebookPen },
-  { label: "Materiały zgodne z egzaminem", icon: FileText },
-  { label: "Indywidualne podejście", icon: UserRound },
-  { label: "Realne efekty", icon: GraduationCap },
-  { label: "Stałe wsparcie", icon: HeartHandshake },
+  {
+    title: "Plan nauki",
+    description: "uporządkowana ścieżka działania",
+    icon: BookOpen,
+  },
+  {
+    title: "Nauka krok po kroku",
+    description: "jasny system przygotowania",
+    icon: NotebookPen,
+  },
+  {
+    title: "Materiały egzaminacyjne",
+    description: "tylko to, co naprawdę potrzebne",
+    icon: FileText,
+  },
+  {
+    title: "Indywidualne podejście",
+    description: "wsparcie dopasowane do ucznia",
+    icon: UserRound,
+  },
+  {
+    title: "Realne efekty",
+    description: "praca pod wynik i pewność",
+    icon: GraduationCap,
+  },
+  {
+    title: "Stałe wsparcie",
+    description: "spokojny kontakt i jasne kroki",
+    icon: HeartHandshake,
+  },
 ];
 
 const credibilityBadges = [
@@ -104,11 +124,11 @@ const eighthGradeCards = [
   { title: "Omówienie lektur", icon: BookOpen },
   { title: "Rozprawka", icon: Pencil },
   { title: "Opowiadanie", icon: NotebookPen },
-  { title: "Zaproszenie", icon: Mail },
   { title: "Ogłoszenie", icon: Megaphone },
   { title: "Arkusze egzaminacyjne", icon: FileText },
   { title: "Czytanie ze zrozumieniem", icon: BookMarked },
   { title: "Charakterystyka", icon: UserRound },
+  { title: "Zaproszenie", icon: Mail },
 ];
 
 const products = [
@@ -163,7 +183,7 @@ const dashboardTabs = [
     label: "Moje materiały PDF",
     icon: FileText,
     title: "PDF-y i notatki zawsze pod ręką",
-    description: "Lektury, checklisty i arkusze są uporządkowane jak prywatna biblioteka przygotowań.",
+    description: "Lektury, listy kontrolne i arkusze są uporządkowane jak prywatna biblioteka przygotowań.",
   },
   {
     label: "Korepetycje",
@@ -205,7 +225,7 @@ const SectionIntro = ({
   </div>
 );
 
-const PremiumButton = ({
+const GlownyPrzycisk = ({
   children,
   href,
   variant = "primary",
@@ -290,64 +310,67 @@ const SoftBackground = () => (
 );
 
 const HeroStudyScene = () => (
-  <div className="academic-scene group relative mx-auto mt-8 min-h-[410px] w-full max-w-xl lg:mt-0 lg:min-h-[520px]">
-    <div className="absolute inset-x-4 bottom-8 h-64 rounded-[2.4rem] bg-[#1E293B]/10 blur-3xl" />
-    <div className="absolute inset-0 rounded-[2.4rem] border border-white/75 bg-white/48 shadow-[0_32px_95px_rgba(30,41,59,0.12)] backdrop-blur-xl" />
+  <div className="academic-scene group relative mx-auto mt-8 min-h-[390px] w-full max-w-xl lg:mt-0 lg:min-h-[500px]">
+    <div className="absolute inset-x-8 bottom-6 h-28 rounded-[50%] bg-[#1E293B]/14 blur-2xl" />
+    <div className="absolute inset-0 overflow-hidden rounded-[2.3rem] border border-white/70 bg-[#8B6642] shadow-[0_34px_95px_rgba(30,41,59,0.14)]">
+      <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(90deg,rgba(255,255,255,.16)_1px,transparent_1px),linear-gradient(rgba(30,41,59,.12)_1px,transparent_1px)] [background-size:42px_100%,100%_34px]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(231,200,115,0.42),transparent_32%),linear-gradient(145deg,rgba(255,244,221,0.42),rgba(30,41,59,0.05))]" />
+    </div>
 
-    <div className="scene-layer absolute inset-5 rounded-[2rem] bg-[radial-gradient(circle_at_30%_20%,rgba(231,200,115,0.24),transparent_30%),linear-gradient(145deg,#FCFAF6_0%,#EAF2FF_100%)] p-5 shadow-inner transition-transform duration-700 group-hover:-translate-y-1 sm:p-7">
-      <div className="absolute right-8 top-8 h-32 w-32 rounded-full bg-[#E7C873]/35 blur-2xl" />
-      <div className="absolute right-10 top-10 h-16 w-16 rounded-full bg-[#E7C873]/45" />
-      <div className="absolute right-[4.2rem] top-[6.3rem] h-44 w-2 -rotate-12 rounded-full bg-[#1E293B]/20" />
-      <div className="absolute right-20 top-36 h-24 w-32 rounded-full bg-[#E7C873]/20 blur-2xl" />
-
-      <div className="paper-float absolute left-8 top-8 w-44 rotate-[-7deg] rounded-[1.25rem] border border-[#1E293B]/10 bg-white p-4 shadow-[0_18px_45px_rgba(30,41,59,0.12)] sm:w-52">
-        <div className="mb-3 flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-[#7C6CF6]">
-          <FileText className="h-3.5 w-3.5" /> arkusz
+    <div className="scene-layer absolute inset-4 rounded-[2rem] transition-transform duration-700 group-hover:rotate-[0.45deg] group-hover:scale-[1.01] sm:inset-6">
+      <div className="desk-paper absolute left-4 top-7 w-[52%] -rotate-6 rounded-[1.2rem] border border-[#1E293B]/10 bg-[#FBFAF7] p-4 shadow-[0_20px_50px_rgba(30,41,59,0.16)] sm:left-6 sm:top-8 sm:p-5">
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <span className="text-[0.62rem] font-black uppercase tracking-[0.2em] text-[#7C6CF6]">Arkusz maturalny</span>
+          <FileText className="h-3.5 w-3.5 text-[#7C6CF6]" />
         </div>
         <div className="space-y-2">
-          <span className="block h-2 w-full rounded bg-[#1E293B]/20" />
-          <span className="block h-2 w-10/12 rounded bg-[#1E293B]/15" />
-          <span className="block h-2 w-8/12 rounded bg-[#7C6CF6]/30" />
+          <span className="block h-2 w-full rounded bg-[#1E293B]/18" />
+          <span className="block h-2 w-11/12 rounded bg-[#1E293B]/14" />
+          <span className="block h-2 w-9/12 rounded bg-[#E7C873]/70" />
+          <span className="block h-2 w-10/12 rounded bg-[#1E293B]/14" />
         </div>
-        <p className="mt-4 font-serif text-lg font-semibold tracking-[-0.04em] text-[#1E293B]">Rozprawka</p>
-      </div>
-
-      <div className="paper-float-delayed absolute bottom-14 left-8 w-56 rotate-[4deg] rounded-[1.4rem] bg-[#FFF7DC] p-5 shadow-[0_18px_45px_rgba(30,41,59,0.1)] sm:left-16 sm:w-64">
-        <p className="text-xs font-black uppercase tracking-[0.18em] text-[#7C6CF6]">notatka</p>
-        <h3 className="mt-2 font-serif text-2xl font-semibold tracking-[-0.05em] text-[#1E293B]">Motyw winy i kary</h3>
-        <div className="mt-4 space-y-2 text-sm text-[#526174]">
-          <p>• przykład z lektury</p>
-          <p>• kontekst epoki</p>
-          <p>• wniosek do argumentu</p>
+        <div className="mt-5 rounded-xl bg-[#EAF2FF] p-3 text-xs font-bold leading-5 text-[#1E293B]">
+          Temat: rola kontekstu w interpretacji lektury
         </div>
       </div>
 
-      <div className="absolute bottom-16 right-6 w-56 rotate-[-3deg] rounded-[1.4rem] bg-[#1E293B] p-5 text-white shadow-[0_24px_60px_rgba(30,41,59,0.22)] sm:right-10 sm:w-64">
-        <div className="mb-4 flex items-center justify-between">
-          <span className="text-xs font-black uppercase tracking-[0.18em] text-[#E7C873]">plan powtórki</span>
-          <BookOpen className="h-4 w-4 text-[#E7C873]" />
-        </div>
-        {[
-          "Lektura",
-          "Motywy",
-          "Konteksty",
-          "Praca pisemna",
-        ].map((item, index) => (
-          <div key={item} className="flex items-center gap-3 border-t border-white/10 py-2.5 text-sm text-white/82">
-            <span className="grid h-5 w-5 place-items-center rounded-full bg-white/10 text-[0.65rem] font-black text-[#E7C873]">{index + 1}</span>
-            {item}
+      <div className="absolute bottom-8 left-10 w-[58%] rotate-3 rounded-[1.5rem] border border-[#1E293B]/10 bg-[#FFFDF8] p-4 shadow-[0_24px_60px_rgba(30,41,59,0.18)] sm:p-5">
+        <div className="absolute left-1/2 top-0 h-full w-px bg-[#E7C873]/55" />
+        <div className="grid grid-cols-2 gap-5">
+          <div>
+            <p className="font-serif text-xl font-semibold tracking-[-0.04em] text-[#1E293B]">Notatnik</p>
+            <div className="mt-4 space-y-2 text-xs font-medium text-[#526174]">
+              <p>teza → argument → przykład</p>
+              <p>motyw: dojrzewanie</p>
+              <p>kontekst: epoka</p>
+            </div>
           </div>
-        ))}
+          <div className="space-y-2 pt-2">
+            <span className="block h-2 w-full rounded bg-[#1E293B]/14" />
+            <span className="block h-2 w-10/12 rounded bg-[#1E293B]/14" />
+            <span className="block h-2 w-8/12 rounded bg-[#7C6CF6]/28" />
+            <span className="block h-2 w-11/12 rounded bg-[#1E293B]/12" />
+          </div>
+        </div>
       </div>
 
-      <div className="absolute left-1/2 top-1/2 hidden h-28 w-44 -translate-x-1/2 -translate-y-1/2 rotate-[-10deg] rounded-t-[1rem] rounded-b-[0.45rem] bg-[#7C6CF6] shadow-[0_22px_55px_rgba(124,108,246,0.22)] sm:block">
-        <div className="absolute inset-3 rounded-t-[0.8rem] border border-white/25" />
-        <div className="absolute bottom-0 left-0 h-5 w-full rounded-b-[0.45rem] bg-[#E7C873]" />
+      <div className="desk-note absolute right-7 top-10 w-32 rotate-6 rounded-[1rem] bg-[#FFF7DC] p-4 shadow-[0_16px_40px_rgba(30,41,59,0.14)]">
+        <p className="text-[0.68rem] font-black uppercase tracking-[0.16em] text-[#7C6CF6]">do powtórki</p>
+        <p className="mt-2 font-serif text-lg font-semibold leading-5 tracking-[-0.04em] text-[#1E293B]">motywy i konteksty</p>
       </div>
 
-      <div className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 items-center gap-2 rounded-full border border-white/70 bg-white/75 px-4 py-2 text-sm font-bold text-[#1E293B] shadow-lg backdrop-blur sm:flex">
-        <PenLine className="h-3.5 w-3.5 text-[#7C6CF6]" />
-        nauka uporządkowana jak dobry plan
+      <div className="absolute bottom-14 right-7 h-3 w-44 -rotate-[24deg] rounded-full bg-[#1E293B] shadow-[0_12px_24px_rgba(30,41,59,0.26)]">
+        <span className="absolute -right-3 -top-1 h-5 w-8 rounded-full bg-[#E7C873]" />
+        <span className="absolute -left-5 -top-0.5 h-4 w-8 rounded-full border border-[#E7C873] bg-[#FAF7F2]" />
+      </div>
+
+      <div className="absolute right-12 top-36 hidden w-36 -rotate-3 rounded-[1.1rem] border border-[#1E293B]/10 bg-white/92 p-4 shadow-[0_16px_40px_rgba(30,41,59,0.13)] sm:block">
+        <p className="text-xs font-bold text-[#526174]">fragment tekstu</p>
+        <div className="mt-3 space-y-2">
+          <span className="block h-2 w-full rounded bg-[#1E293B]/13" />
+          <span className="block h-2 w-10/12 rounded bg-[#E7C873]/80" />
+          <span className="block h-2 w-9/12 rounded bg-[#1E293B]/13" />
+        </div>
       </div>
     </div>
   </div>
@@ -360,7 +383,7 @@ const HeroSection = () => (
       <div className="reveal max-w-3xl">
         <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-white/80 bg-white/62 px-4 py-2 shadow-sm backdrop-blur">
           <BookOpen className="h-4 w-4 text-[#7C6CF6]" />
-          <span className="text-sm font-bold text-[#1E293B]">Premium przygotowanie do egzaminów z języka polskiego</span>
+          <span className="text-sm font-bold text-[#1E293B]">Eleganckie przygotowanie do egzaminów z języka polskiego</span>
         </div>
         <h1 className="font-serif text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.06em] text-[#1E293B] sm:text-[4rem] lg:text-[4.65rem]">
           Język polski bez chaosu. Matura bez stresu. Wyniki z pewnością.
@@ -369,9 +392,9 @@ const HeroSection = () => (
           Uporządkowane kursy, warsztaty, materiały PDF i korepetycje online, które prowadzą ucznia krok po kroku — od zagubienia do jasnego planu działania przed egzaminem.
         </p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <PremiumButton href="#matura">Zapisz się na warsztaty</PremiumButton>
-          <PremiumButton href="#sklep" variant="light">Kup materiały</PremiumButton>
-          <PremiumButton href="#korepetycje" variant="ghost">Korepetycje indywidualne</PremiumButton>
+          <GlownyPrzycisk href="#matura">Zapisz się na warsztaty</GlownyPrzycisk>
+          <GlownyPrzycisk href="#sklep" variant="light">Kup materiały</GlownyPrzycisk>
+          <GlownyPrzycisk href="#korepetycje" variant="ghost">Korepetycje indywidualne</GlownyPrzycisk>
         </div>
       </div>
       <HeroStudyScene />
@@ -380,16 +403,21 @@ const HeroSection = () => (
 );
 
 const TrustBadgesSection = () => (
-  <section className="px-4 py-7 sm:px-6 lg:py-9">
-    <div className="mx-auto grid max-w-6xl grid-cols-2 gap-3 lg:grid-cols-3">
+  <section className="px-4 py-6 sm:px-6 lg:py-8">
+    <div className="mx-auto grid max-w-6xl grid-cols-2 gap-2.5 lg:grid-cols-3">
       {trustBadges.map((badge) => {
         const Icon = badge.icon;
         return (
-          <div key={badge.label} className="reveal group flex items-center gap-3 rounded-[1.25rem] border border-white/75 bg-white/60 p-3.5 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/82 hover:shadow-[0_16px_42px_rgba(30,41,59,0.09)] sm:p-4">
-            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-[#EAF2FF] text-[#7C6CF6] transition-colors group-hover:bg-[#7C6CF6] group-hover:text-white">
-              <Icon className="h-4 w-4" />
-            </span>
-            <span className="text-sm font-bold leading-5 text-[#1E293B] sm:text-[0.95rem]">{badge.label}</span>
+          <div key={badge.title} className="reveal group rounded-[1.15rem] border border-white/75 bg-white/62 p-3 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/86 hover:shadow-[0_14px_36px_rgba(30,41,59,0.08)] sm:p-3.5">
+            <div className="flex items-start gap-2.5">
+              <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-xl bg-[#EAF2FF] text-[#7C6CF6] transition-colors group-hover:bg-[#7C6CF6] group-hover:text-white">
+                <Icon className="h-3.5 w-3.5" />
+              </span>
+              <div>
+                <p className="text-sm font-black leading-5 text-[#1E293B]">{badge.title}</p>
+                <p className="mt-0.5 text-xs leading-5 text-[#526174]">{badge.description}</p>
+              </div>
+            </div>
           </div>
         );
       })}
@@ -406,10 +434,7 @@ const AboutSection = () => (
           <BookOpen className="mr-2 inline h-3.5 w-3.5 text-[#7C6CF6]" />
           praca z tekstem
         </div>
-        <img src={TEACHER_BOOK} alt="Paulina podczas pracy z książką" className="absolute inset-x-0 bottom-0 mx-auto h-[430px] w-auto object-contain drop-shadow-[0_24px_40px_rgba(30,41,59,0.2)] sm:h-[500px]" />
-        <div className="absolute bottom-5 right-5 z-20 hidden h-28 w-24 overflow-hidden rounded-3xl border-4 border-[#FAF7F2] bg-[#EAF2FF] shadow-[0_18px_40px_rgba(30,41,59,0.16)] sm:block">
-          <img src={TEACHER_PORTRAIT} alt="Paulina Spruch-Wójtowicz" className="h-full w-full object-cover object-top" />
-        </div>
+        <img src={TEACHER_BOOK} alt="Paulina podczas pracy z książką" className="absolute inset-x-0 bottom-0 mx-auto h-[440px] w-auto object-contain object-bottom drop-shadow-[0_24px_40px_rgba(30,41,59,0.2)] sm:h-[500px]" />
       </div>
       <div className="max-w-2xl py-2 lg:py-4">
         <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#E7C873]/45 bg-[#FFF7DC] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#6D5DE8]">
@@ -528,24 +553,24 @@ const MaturaSection = () => {
 };
 
 const EighthGradeSection = () => (
-  <section id="osmoklasista" className="px-4 py-10 sm:px-6 lg:py-14">
-    <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/75 bg-[#EAF2FF]/72 p-5 shadow-[0_24px_72px_rgba(30,41,59,0.09)] backdrop-blur-xl sm:p-7">
-      <div className="grid items-end gap-5 lg:grid-cols-[0.78fr_1.22fr]">
+  <section id="osmoklasista" className="px-4 py-9 sm:px-6 lg:py-12">
+    <div className="mx-auto max-w-7xl rounded-[1.85rem] border border-white/75 bg-[#EAF2FF]/72 p-4 shadow-[0_22px_64px_rgba(30,41,59,0.08)] backdrop-blur-xl sm:p-6">
+      <div className="grid items-start gap-5 lg:grid-cols-[0.78fr_1.22fr]">
         <SectionIntro
           align="left"
           eyebrow="Strefa ósmoklasisty"
           title="Kurs kompleksowy bez ciężkich bloków i bez zgadywania, co powtórzyć."
           description="Lektury, formy wypowiedzi i arkusze ułożone w krótkie moduły, które pomagają przygotować się spokojnie i regularnie."
         />
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-4">
           {eighthGradeCards.map((item) => {
             const Icon = item.icon;
             return (
-              <div key={item.title} className="group rounded-[1.3rem] border border-white/80 bg-white/78 p-3.5 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_16px_42px_rgba(30,41,59,0.09)] sm:p-4">
-                <span className="mb-3 grid h-9 w-9 place-items-center rounded-xl bg-[#FAF7F2] text-[#7C6CF6] transition-colors group-hover:bg-[#7C6CF6] group-hover:text-white">
-                  <Icon className="h-4 w-4" />
+              <div key={item.title} className="group min-h-[88px] rounded-[1.15rem] border border-white/80 bg-white/78 p-3 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_14px_34px_rgba(30,41,59,0.08)]">
+                <span className="mb-2.5 grid h-8 w-8 place-items-center rounded-xl bg-[#FAF7F2] text-[#7C6CF6] transition-colors group-hover:bg-[#7C6CF6] group-hover:text-white">
+                  <Icon className="h-3.5 w-3.5" />
                 </span>
-                <p className="text-sm font-bold leading-5 tracking-[-0.02em] text-[#1E293B] sm:text-[0.95rem]">{item.title}</p>
+                <p className="text-[0.82rem] font-bold leading-5 tracking-[-0.02em] text-[#1E293B] sm:text-sm">{item.title}</p>
               </div>
             );
           })}
@@ -617,10 +642,10 @@ const FreeStudentZoneSection = () => (
               <ClipboardCheck className="h-5 w-5 text-[#7C6CF6]" />
             </div>
             <div className="mt-5 space-y-3">
-              {["Teza i argument", "Kontekst", "Wniosek", "Checklist PDF"].map((step, index) => (
-                <div key={step} className="flex items-center justify-between rounded-2xl bg-white p-4 shadow-sm">
+              {["Teza i argument", "Kontekst", "Wniosek", "Lista kontrolna"].map((step, index) => (
+                <div key={step} className="flex items-center justify-between rounded-2xl bg-white p-3.5 shadow-sm">
                   <span className="font-bold">{step}</span>
-                  <span className={cn("rounded-full px-3 py-1 text-xs font-black", index < 3 ? "bg-[#EAF2FF] text-[#7C6CF6]" : "bg-[#E7C873] text-[#1E293B]")}>{index < 3 ? "lekcja" : "PDF"}</span>
+                  <span className={cn("rounded-full px-3 py-1 text-xs font-black", index < 3 ? "bg-[#EAF2FF] text-[#7C6CF6]" : "bg-[#E7C873] text-[#1E293B]")}>{index < 3 ? "lekcja" : "plan"}</span>
                 </div>
               ))}
             </div>
@@ -644,11 +669,11 @@ const TutoringSection = () => {
             title="Potrzebujesz indywidualnego wsparcia?"
             description="Elegancki, spokojny proces rezerwacji i lekcje online prowadzone pod konkretny cel: egzamin, zaległości albo pewność w pisaniu."
           />
-          <div className="mt-6 grid gap-3">
+          <div className="mt-6 grid gap-2.5 sm:grid-cols-2">
             {tutoringBenefits.map((benefit) => (
-              <div key={benefit} className="flex items-center gap-4 rounded-2xl border border-white/75 bg-white/68 p-4 shadow-sm backdrop-blur">
-                <HeartHandshake className="h-4 w-4 shrink-0 text-[#7C6CF6]" />
-                <span className="font-semibold text-[#1E293B]">{benefit}</span>
+              <div key={benefit} className="flex items-start gap-3 rounded-2xl border border-white/75 bg-white/68 p-3.5 shadow-sm backdrop-blur">
+                <HeartHandshake className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#7C6CF6]" />
+                <span className="text-sm font-semibold leading-6 text-[#1E293B]">{benefit}</span>
               </div>
             ))}
           </div>
@@ -800,7 +825,7 @@ const SiteFooter = () => (
       <div className="grid gap-8 lg:grid-cols-[1fr_1.4fr]">
         <div>
           <KlasaMistrzowLogo />
-          <p className="mt-5 max-w-md leading-7 text-[#526174]">Premium marka edukacyjna Pauliny Spruch-Wójtowicz: warsztaty, PDF, korepetycje i strefa ucznia w jednym spokojnym systemie nauki.</p>
+          <p className="mt-5 max-w-md leading-7 text-[#526174]">Marka edukacyjna Pauliny Spruch-Wójtowicz: warsztaty, PDF, korepetycje i strefa ucznia w jednym spokojnym systemie nauki.</p>
         </div>
         <div className="grid gap-7 sm:grid-cols-3">
           <div>

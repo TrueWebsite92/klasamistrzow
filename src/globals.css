@@ -125,12 +125,12 @@
     transform-style: preserve-3d;
   }
 
-  .paper-float {
-    animation: paper-float 6.4s ease-in-out infinite;
+  .desk-paper {
+    animation: desk-paper 7s ease-in-out infinite;
   }
 
-  .paper-float-delayed {
-    animation: paper-float-delayed 7.2s ease-in-out infinite;
+  .desk-note {
+    animation: desk-note 6.2s ease-in-out infinite;
   }
 }
 
@@ -146,22 +146,22 @@
   }
 }
 
-@keyframes paper-float {
+@keyframes desk-paper {
   0%, 100% {
-    transform: translateY(0) rotate(-7deg);
+    transform: translateY(0) rotate(-6deg);
   }
 
   50% {
-    transform: translateY(-9px) rotate(-5deg);
+    transform: translateY(-5px) rotate(-5.2deg);
   }
 }
 
-@keyframes paper-float-delayed {
+@keyframes desk-note {
   0%, 100% {
-    transform: translateY(0) rotate(4deg);
+    transform: translateY(0) rotate(6deg);
   }
 
   50% {
-    transform: translateY(-7px) rotate(2deg);
+    transform: translateY(-4px) rotate(5deg);
   }
 }
