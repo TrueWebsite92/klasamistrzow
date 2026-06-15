@@ -117,28 +117,8 @@
     animation-delay: 120ms;
   }
 
-  .hero-editorial {
-    perspective: 1400px;
-  }
-
-  .hero-layer {
-    transform-style: preserve-3d;
-  }
-
-  .hero-page-left {
-    animation: hero-page-left 8s ease-in-out infinite;
-  }
-
-  .hero-notebook {
-    animation: hero-notebook 9s ease-in-out infinite;
-  }
-
-  .hero-sticky {
-    animation: hero-sticky 6.5s ease-in-out infinite;
-  }
-
-  .hero-book-page {
-    animation: hero-book-page 10s ease-in-out infinite;
+  .hero-trust-panel {
+    animation: hero-trust-panel 7.5s ease-in-out infinite;
   }
 }
 
@@ -154,42 +134,12 @@
   }
 }
 
-@keyframes hero-page-left {
+@keyframes hero-trust-panel {
   0%, 100% {
-    transform: translateY(0) rotate(-7deg);
+    transform: translateY(0);
   }
 
   50% {
-    transform: translateY(-5px) rotate(-6.2deg);
-  }
-}
-
-@keyframes hero-notebook {
-  0%, 100% {
-    transform: translateY(0) rotate(3deg);
-  }
-
-  50% {
-    transform: translateY(-4px) rotate(2.4deg);
-  }
-}
-
-@keyframes hero-sticky {
-  0%, 100% {
-    transform: translateY(0) rotate(6deg);
-  }
-
-  50% {
-    transform: translateY(-4px) rotate(5deg);
-  }
-}
-
-@keyframes hero-book-page {
-  0%, 100% {
-    transform: translateY(0) rotate(8deg);
-  }
-
-  50% {
-    transform: translateY(-3px) rotate(7deg);
+    transform: translateY(-6px);
   }
 }

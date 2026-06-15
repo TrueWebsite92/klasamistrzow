@@ -23,6 +23,7 @@ import {
   ReceiptText,
   ScrollText,
   Sparkles,
+  Star,
   UserRound,
 } from "lucide-react";
 
@@ -309,91 +310,54 @@ const SoftBackground = () => (
   </div>
 );
 
-const HeroStudyScene = () => (
-  <div className="hero-editorial relative mx-auto mt-8 min-h-[420px] w-full max-w-[560px] lg:mt-0 lg:min-h-[560px]">
-    <div className="absolute inset-x-10 bottom-5 h-24 rounded-[50%] bg-[#1E293B]/12 blur-2xl" />
-    <div className="absolute inset-0 overflow-hidden rounded-[2.4rem] border border-white/70 bg-[#F4EEE4] shadow-[0_34px_95px_rgba(30,41,59,0.14)]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(231,200,115,0.28),transparent_28%),radial-gradient(circle_at_82%_22%,rgba(124,108,246,0.12),transparent_24%),linear-gradient(145deg,rgba(255,255,255,0.82),rgba(234,242,255,0.42))]" />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(30,41,59,0.04))]" />
-      <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(90deg,rgba(139,102,66,.08)_1px,transparent_1px),linear-gradient(rgba(139,102,66,.06)_1px,transparent_1px)] [background-size:56px_100%,100%_42px]" />
-      <div className="absolute left-[-8%] top-[12%] h-[58%] w-[52%] rotate-[-8deg] rounded-[2rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(255,255,255,0.18))] blur-xl" />
-      <div className="absolute right-[-10%] top-[8%] h-[52%] w-[46%] rotate-[10deg] rounded-[2rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.58),rgba(255,255,255,0.12))] blur-xl" />
-    </div>
+const HeroTrustPanel = () => (
+  <div className="hero-trust-panel relative mx-auto mt-8 w-full max-w-[520px] lg:mt-0">
+    <div className="absolute inset-x-10 bottom-0 h-16 rounded-[50%] bg-[#1E293B]/10 blur-2xl" />
+    <div className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,247,242,0.82))] p-5 shadow-[0_34px_95px_rgba(30,41,59,0.14)] backdrop-blur-2xl sm:p-7">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(124,108,246,0.12),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(231,200,115,0.18),transparent_30%)]" />
+      <div className="relative">
+        <div className="flex items-center gap-1 text-[#E7C873]">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <Star key={index} className="h-4 w-4 fill-current" />
+          ))}
+        </div>
 
-    <div className="absolute inset-5 rounded-[2rem] bg-[linear-gradient(145deg,rgba(139,102,66,0.92),rgba(111,82,58,0.96))] shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] sm:inset-6">
-      <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(90deg,rgba(255,255,255,.12)_1px,transparent_1px),linear-gradient(rgba(30,41,59,.12)_1px,transparent_1px)] [background-size:44px_100%,100%_34px]" />
-      <div className="absolute right-10 top-10 h-24 w-24 rounded-full bg-[#E7C873]/28 blur-2xl" />
-      <div className="absolute left-10 top-8 h-16 w-28 rounded-full bg-white/10 blur-xl" />
-    </div>
+        <h3 className="mt-5 max-w-md font-serif text-[2rem] font-semibold leading-[1.02] tracking-[-0.05em] text-[#1E293B] sm:text-[2.35rem]">
+          Zaufały mi setki uczniów przygotowujących się do egzaminów.
+        </h3>
 
-    <div className="hero-layer absolute inset-5 sm:inset-6">
-      <div className="hero-page-left absolute left-4 top-7 w-[54%] rotate-[-7deg] rounded-[1.35rem] border border-[#1E293B]/10 bg-[#FCFBF8] p-4 shadow-[0_22px_55px_rgba(30,41,59,0.18)] sm:left-6 sm:top-8 sm:p-5">
-        <div className="mb-3 flex items-center justify-between gap-3">
-          <span className="text-[0.62rem] font-black uppercase tracking-[0.2em] text-[#7C6CF6]">Arkusz maturalny</span>
-          <FileText className="h-3.5 w-3.5 text-[#7C6CF6]" />
-        </div>
-        <div className="space-y-2.5">
-          <span className="block h-2 w-full rounded bg-[#1E293B]/14" />
-          <span className="block h-2 w-11/12 rounded bg-[#1E293B]/12" />
-          <span className="block h-2 w-8/12 rounded bg-[#E7C873]/85" />
-          <span className="block h-2 w-10/12 rounded bg-[#1E293B]/12" />
-          <span className="block h-2 w-9/12 rounded bg-[#1E293B]/10" />
-        </div>
-        <div className="mt-5 rounded-[1rem] border border-[#7C6CF6]/10 bg-[#EAF2FF] p-3 text-xs font-bold leading-5 text-[#1E293B]">
-          Temat: rola kontekstu w interpretacji lektury
-        </div>
-      </div>
-
-      <div className="hero-book-page absolute right-5 top-10 hidden h-[42%] w-[34%] rotate-[8deg] rounded-[1.4rem] border border-white/45 bg-[linear-gradient(180deg,rgba(255,252,245,0.92),rgba(248,241,228,0.88))] shadow-[0_18px_44px_rgba(30,41,59,0.16)] sm:block">
-        <div className="absolute inset-x-5 top-5 h-px bg-[#1E293B]/10" />
-        <div className="absolute inset-x-5 top-9 space-y-2">
-          <span className="block h-2 w-full rounded bg-[#1E293B]/10" />
-          <span className="block h-2 w-10/12 rounded bg-[#1E293B]/10" />
-          <span className="block h-2 w-11/12 rounded bg-[#E7C873]/70" />
-          <span className="block h-2 w-9/12 rounded bg-[#1E293B]/10" />
-        </div>
-        <div className="absolute bottom-5 left-5 text-[0.62rem] font-black uppercase tracking-[0.18em] text-[#7C6CF6]">
-          fragment lektury
-        </div>
-      </div>
-
-      <div className="hero-notebook absolute bottom-8 left-10 w-[60%] rotate-[3deg] rounded-[1.6rem] border border-[#1E293B]/10 bg-[#FFFDF8] p-4 shadow-[0_26px_62px_rgba(30,41,59,0.2)] sm:p-5">
-        <div className="absolute left-1/2 top-0 h-full w-px bg-[#E7C873]/55" />
-        <div className="grid grid-cols-2 gap-5">
-          <div>
-            <p className="font-serif text-xl font-semibold tracking-[-0.04em] text-[#1E293B]">Notatnik</p>
-            <div className="mt-4 space-y-2 text-xs font-medium text-[#526174]">
-              <p>Dziady · motyw winy</p>
-              <p>Lalka · praca i ambicja</p>
-              <p>Chłopi · rytm natury</p>
-              <p>Pan Tadeusz · tradycja</p>
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          {[
+            "Warsztaty online",
+            "Korepetycje indywidualne",
+            "Materiały PDF premium",
+            "Egzamin ósmoklasisty",
+            "Przygotowanie do matury",
+          ].map((item) => (
+            <div
+              key={item}
+              className="flex items-center gap-3 rounded-[1rem] border border-[#1E293B]/8 bg-white/72 px-3.5 py-3 shadow-[0_10px_24px_rgba(30,41,59,0.05)]"
+            >
+              <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#EAF2FF] text-[#7C6CF6]">
+                <Check className="h-3.5 w-3.5" />
+              </span>
+              <span className="text-sm font-semibold text-[#1E293B]">{item}</span>
             </div>
-          </div>
-          <div className="space-y-2 pt-2">
-            <span className="block h-2 w-full rounded bg-[#1E293B]/12" />
-            <span className="block h-2 w-10/12 rounded bg-[#1E293B]/12" />
-            <span className="block h-2 w-8/12 rounded bg-[#7C6CF6]/26" />
-            <span className="block h-2 w-11/12 rounded bg-[#1E293B]/10" />
-            <span className="block h-2 w-9/12 rounded bg-[#E7C873]/75" />
-          </div>
+          ))}
         </div>
-      </div>
 
-      <div className="hero-sticky absolute right-8 top-14 w-32 rotate-[6deg] rounded-[1rem] bg-[#FFF7DC] p-4 shadow-[0_16px_40px_rgba(30,41,59,0.14)]">
-        <p className="text-[0.68rem] font-black uppercase tracking-[0.16em] text-[#7C6CF6]">do powtórki</p>
-        <p className="mt-2 font-serif text-lg font-semibold leading-5 tracking-[-0.04em] text-[#1E293B]">motywy i konteksty</p>
-      </div>
-
-      <div className="absolute bottom-16 right-8 h-3 w-44 -rotate-[24deg] rounded-full bg-[#1E293B] shadow-[0_12px_24px_rgba(30,41,59,0.26)]">
-        <span className="absolute -right-3 -top-1 h-5 w-8 rounded-full bg-[#E7C873]" />
-        <span className="absolute -left-5 -top-0.5 h-4 w-8 rounded-full border border-[#E7C873] bg-[#FAF7F2]" />
-      </div>
-
-      <div className="absolute left-6 top-5 rounded-full border border-white/70 bg-white/82 px-3 py-2 text-[0.72rem] font-bold text-[#1E293B] shadow-[0_14px_34px_rgba(30,41,59,0.12)] backdrop-blur">
-        ✓ przygotowanie do matury
-      </div>
-      <div className="absolute bottom-5 right-6 rounded-full border border-white/70 bg-white/82 px-3 py-2 text-[0.72rem] font-bold text-[#1E293B] shadow-[0_14px_34px_rgba(30,41,59,0.12)] backdrop-blur">
-        ✓ spokojna nauka krok po kroku
+        <div className="mt-7 grid gap-3 border-t border-[#1E293B]/8 pt-6 sm:grid-cols-3">
+          {[
+            ["1500+", "uczniów"],
+            ["4000+", "godzin zajęć"],
+            ["98%", "pozytywnych opinii"],
+          ].map(([value, label]) => (
+            <div key={label} className="rounded-[1.15rem] bg-[#FAF7F2] px-4 py-4 shadow-[inset_0_0_0_1px_rgba(30,41,59,0.04)]">
+              <p className="font-serif text-[1.8rem] font-semibold tracking-[-0.05em] text-[#1E293B]">{value}</p>
+              <p className="mt-1 text-sm font-medium text-[#526174]">{label}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </div>
@@ -420,7 +384,7 @@ const HeroSection = () => (
           <GlownyPrzycisk href="#korepetycje" variant="ghost">Korepetycje indywidualne</GlownyPrzycisk>
         </div>
       </div>
-      <HeroStudyScene />
+      <HeroTrustPanel />
     </div>
   </section>
 );
